@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo-couleurs-du-bien-etre.webp";
+import { NAV_LINKS, SITE } from "../data/site";
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+}
+---
+
+<header class="sticky top-0 z-50 bg-white shadow-[0_1px_4px_rgba(0,0,0,0.12)]">
+  <div class="mx-auto flex h-[77px] max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
+    <a href="/" class="flex shrink-0 items-center gap-2">
+      <Image src={logo} alt={SITE.name} width={88} height={88} class="h-11 w-11" />
+      <span class="hidden flex-col leading-tight sm:flex">
+        <span class="font-body text-xs font-extrabold tracking-wide text-heading uppercase">
+          {SITE.name}
+        </span>
+        <span class="font-script text-lg text-heading">{SITE.tagline}</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
+      {NAV_LINKS.map((link) => (
+        <div class="group relative">
+          <a
+            href={link.href}
+            class:list={[
+              "font-body inline-block rounded-md px-3 py-2 text-sm font-extrabold tracking-wide uppercase transition-colors",
+              isActive(link.href) ? "text-primary" : "text-nav hover:text-primary",
+            ]}
+          >
+            {link.label}
+          </a>
+          {link.children && (
+            <div
+              class="invisible absolute left-0 top-full flex min-w-[220px] flex-col gap-1 rounded-xl border border-bg-gray/60 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+            >
+              {link.children.map((child) => (
+                <a
+                  href={child.href}
+                  class="font-body rounded-lg px-3 py-2 text-sm font-semibold text-nav transition-colors hover:bg-bg-cream hover:text-primary"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+
+    <a
+      href="/contact"
+      class="font-body inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+        <rect x="3" y="8" width="18" height="13" rx="1"></rect>
+        <path d="M12 8v13M3 12h18M12 8c-1.5-4-6-4-6-1.5S9 8 12 8Zm0 0c1.5-4 6-4 6-1.5S15 8 12 8Z"></path>
+      </svg>
+      Pour offrir
+    </a>
+  </div>
+</header>

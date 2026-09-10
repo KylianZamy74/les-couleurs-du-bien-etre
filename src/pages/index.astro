@@ -1,0 +1,245 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Faq from "../components/Faq.astro";
+import { Image } from "astro:assets";
+import { localBusinessSchema, faqSchema } from "../data/schema";
+
+import heroMassage from "../assets/images/massage-relaxant-dos-epaules.webp";
+import portraitSarah from "../assets/images/sarah-vidal-praticienne-bien-etre-portrait.webp";
+import textureSable from "../assets/images/sable-zen-cercles-meditation.webp";
+
+import imgMassageIntuitif from "../assets/images/huile-essentielle-application-mains.webp";
+import imgPierresChaudes from "../assets/images/massage-pierres-chaudes-seance.webp";
+import imgReiki from "../assets/images/soin-energetique-reiki-imposition-mains.webp";
+import imgAccompagnement from "../assets/images/sarah-vidal-seance-accompagnement.webp";
+import imgBolsTibetains from "../assets/images/bols-tibetains-seance-sonore.webp";
+
+const faqItems = [
+  {
+    question: "Les massages proposés sont-ils thérapeutiques ?",
+    answer:
+      "Non. Conformément à la réglementation en vigueur, les massages que je propose sont à visée de détente, de bien-être et de relaxation. Ils ne remplacent en aucun cas le diagnostic d'un médecin ni la prise en charge d'un kinésithérapeute ou de tout autre professionnel de santé.",
+  },
+  {
+    question: "Où se déroulent les séances ?",
+    answer:
+      "Je vous reçois à Villaz, en Haute-Savoie, à quelques minutes d'Annecy. L'adresse précise vous est communiquée lors de la prise de rendez-vous.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer:
+      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+  },
+  {
+    question: "Quels soins proposez-vous ?",
+    answer:
+      "Des massages bien-être (massage intuitif, massage aux pierres chaudes), des soins énergétiques (reiki, voyage sonore aux bols tibétains) et un accompagnement personnalisé pour votre épanouissement.",
+  },
+  {
+    question: "Peut-on combiner plusieurs soins lors d'une même séance ?",
+    answer:
+      "C'est possible, ces soins étant complémentaires. Parlons-en ensemble lors de notre échange pour composer la prestation la plus adaptée à vos besoins du moment.",
+  },
+];
+---
+
+<BaseLayout
+  title="Sarah Vidal | Praticienne en massages et soins énergétiques à Villaz"
+  description="Sarah Vidal, praticienne en soins bien-être à Villaz. Massages, reiki, bols tibétains et accompagnement personnalisé en Haute-Savoie."
+  path="/"
+  jsonLd={[localBusinessSchema, faqSchema(faqItems)]}
+>
+  <!-- Hero -->
+  <section class="relative isolate flex min-h-[420px] items-end overflow-hidden sm:min-h-[480px]">
+    <Image
+      src={heroMassage}
+      alt="Massage relaxant du dos et des épaules, Les couleurs du bien-être"
+      width={1600}
+      height={900}
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+      priority
+    />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/20 to-black/10" aria-hidden="true"></div>
+    <div class="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-6 sm:pb-14">
+      <p class="font-body max-w-md text-base italic tracking-wide text-white/90 sm:text-lg">
+        Un moment de détente et d'évasion, rien que pour vous.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro / bio -->
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-6xl gap-14 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-center lg:gap-28">
+        <div class="reveal relative mx-auto w-full max-w-[360px]" style="aspect-ratio: 405 / 385;">
+          <Image
+            src={textureSable}
+            alt="Cercles tracés dans le sable, ambiance zen"
+            width={420}
+            height={399}
+            class="absolute inset-0 h-full w-full rounded-lg object-cover"
+          />
+          <span
+            class="font-script absolute left-[48%] top-[39%] flex h-[32%] -translate-x-1/2 items-center text-2xl text-heading [writing-mode:vertical-rl]"
+            aria-hidden="true"
+          >
+            Sarah Vidal
+          </span>
+          <div class="absolute left-[56.8%] top-[23.4%] h-[64.2%] w-[64.7%]">
+            <div class="absolute left-0 top-0 h-[103.2%] w-[103.4%] rounded-lg bg-primary" aria-hidden="true"></div>
+            <Image
+              src={portraitSarah}
+              alt="Sarah Vidal, praticienne en soins bien-être"
+              width={320}
+              height={302}
+              class="absolute inset-0 h-full w-full rounded-lg object-cover"
+            />
+          </div>
+        </div>
+      <div class="reveal flex flex-col gap-5">
+        <h1 class="font-display text-4xl leading-tight font-bold text-heading sm:text-5xl">
+          Sarah Vidal, praticienne en soins bien-être à Villaz
+        </h1>
+        <p class="font-body text-sm font-bold tracking-wide text-primary uppercase">
+          Massages, soins énergétiques et accompagnements personnalisés
+        </p>
+        <p class="font-body text-base leading-relaxed text-text">
+          Je suis praticienne en massages et en soins énergétiques. J'ai développé mes enseignements et
+          mes expériences en suivant diverses formations dans le bien-être, car prendre soin des autres a
+          toujours été une évidence.
+        </p>
+        <p class="font-body text-base leading-relaxed text-text">
+          Le panel de soins que je propose me permet de vous offrir une prestation qui correspond à vos
+          besoins, dans un cadre calme et bienveillant à Villaz, à quelques minutes d'Annecy.
+        </p>
+        <p class="font-body text-base leading-relaxed text-text">
+          Chaque séance commence par un temps d'échange, pour comprendre vos besoins du moment et adapter
+          le soin en conséquence. Je crois profondément que le bien-être ne se limite pas au corps : c'est
+          aussi une question d'écoute, de présence et de respect du rythme de chacun.
+        </p>
+        <p class="font-body text-lg text-primary italic">
+          « Je me libère du passé et je vis pleinement le moment présent. »
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <h2 class="font-body reveal mb-10 text-center text-3xl font-extrabold tracking-wide text-primary uppercase sm:mb-14 sm:text-4xl">
+        Je vous propose :
+      </h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <ServiceCard
+          href="/massages/massage-intuitif"
+          title="Massage Intuitif"
+          description="Massage sur mesure aux huiles essentielles, plusieurs techniques utilisées en fonction de vos besoins."
+          meta="Massage de 60 minutes · 75 €"
+          image={imgMassageIntuitif}
+        />
+        <ServiceCard
+          href="/massages/massage-pierres-chaudes"
+          title="Massage aux pierres chaudes"
+          description="Massage enveloppant avec un profond relâchement musculaire."
+          meta="Massage de 75 minutes · 90 €"
+          image={imgPierresChaudes}
+          delay={80}
+        />
+        <ServiceCard
+          href="/soins-energetiques/reiki"
+          title="Soin Reiki"
+          description="Soin énergétique non conventionnel d'origine japonaise, pratiqué par apposition des mains."
+          meta="Soin de 60 minutes · 65 €"
+          image={imgReiki}
+          delay={160}
+        />
+        <ServiceCard
+          href="/accompagnement"
+          title="Accompagnement personnalisé"
+          description="Ensemble d'exercices et de techniques mis en place pour votre épanouissement personnel."
+          meta="Bilan 1h45 · Séance 1h30"
+          image={imgAccompagnement}
+          delay={240}
+        />
+        <ServiceCard
+          href="/soins-energetiques/bols-tibetain"
+          title="Voyage sonore aux bols tibétains"
+          description="Soin qui utilise les sons et vibrations des bols tibétains pour vous transporter dans un vrai cocon."
+          meta="Soin de 75 minutes · 85 €"
+          image={imgBolsTibetains}
+          delay={320}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Déroulé d'une séance -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Le déroulé</p>
+        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Comment se déroule une séance</h2>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "1",
+            title: "L'accueil",
+            text: "Je vous reçois à Villaz, dans un espace calme, pensé pour vous permettre de vous poser dès votre arrivée.",
+          },
+          {
+            step: "2",
+            title: "L'échange",
+            text: "Avant chaque soin, nous prenons le temps d'échanger sur vos besoins du moment, vos tensions ou ce qui vous amène.",
+          },
+          {
+            step: "3",
+            title: "Le soin",
+            text: "Massage, reiki ou bols tibétains : la séance est adaptée à votre rythme, dans le respect de votre confort.",
+          },
+          {
+            step: "4",
+            title: "Après la séance",
+            text: "Je vous partage quelques conseils simples pour prolonger les bienfaits du soin au quotidien.",
+          },
+        ].map((item, index) => (
+          <div class="reveal flex flex-col items-center gap-3 text-center" style={`animation-delay:${index * 80}ms`}>
+            <span class="font-display text-5xl font-bold text-primary/40">{item.step}</span>
+            <h3 class="font-body text-base font-extrabold tracking-wide text-heading uppercase">{item.title}</h3>
+            <p class="font-body text-sm leading-relaxed text-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
+        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
+      </div>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-bg-tan">
+    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">
+        Envie d'un moment rien que pour vous ?
+      </h2>
+      <p class="font-body text-base leading-relaxed text-heading/90">
+        Écrivez-moi pour convenir ensemble du soin et du créneau qui vous conviennent le mieux.
+      </p>
+      <a
+        href="/contact"
+        class="font-body rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+      >
+        Me contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout>
