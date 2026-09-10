@@ -1,9 +1,6 @@
 import { SITE } from "./site";
+import { reviews, reviewsSummary } from "./reviews";
 
-/**
- * LocalBusiness sans telephone/streetAddress : Sarah n'a pas encore fourni ces
- * informations. A completer des qu'elle les transmet (ne pas inventer de valeurs).
- */
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
@@ -12,13 +9,28 @@ export const localBusinessSchema = {
   url: SITE.url,
   image: new URL("/images/logo-couleurs-du-bien-etre.webp", SITE.url).toString(),
   description: SITE.description,
+  telephone: SITE.phoneIntl,
+  email: SITE.email,
   address: {
     "@type": "PostalAddress",
+    streetAddress: SITE.streetAddress,
+    postalCode: SITE.postalCode,
     addressLocality: SITE.locality,
     addressRegion: SITE.region,
     addressCountry: "FR",
   },
   areaServed: SITE.areaServed,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: reviewsSummary.ratingValue,
+    reviewCount: reviewsSummary.reviewCount,
+  },
+  review: reviews.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.author },
+    reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+    reviewBody: r.text,
+  })),
 };
 
 export function serviceSchema(opts: {

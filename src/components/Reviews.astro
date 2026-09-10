@@ -1,0 +1,41 @@
+---
+import { reviews, reviewsSummary } from "../data/reviews";
+import { SITE } from "../data/site";
+---
+
+<section class="bg-bg-tan/30">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+      <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Elles en parlent</p>
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Ce que disent mes clientes</h2>
+      <p class="font-body text-sm font-semibold text-heading/70">
+        {reviewsSummary.ratingValue.toFixed(1).replace(".", ",")} / 5 · {reviewsSummary.reviewCount} avis {reviewsSummary.source}
+      </p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {reviews.map((review, index) => (
+        <figure
+          class="reveal flex flex-col gap-4 rounded-2xl bg-card-bg p-6 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]"
+          style={`animation-delay:${index * 70}ms`}
+        >
+          <div class="font-display text-2xl leading-none text-primary" aria-hidden="true">{"★".repeat(review.rating)}</div>
+          <blockquote class="font-body flex-1 text-sm leading-relaxed text-text">
+            « {review.text} »
+          </blockquote>
+          <figcaption class="font-body text-sm font-bold text-heading">{review.author}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="reveal mt-10 flex justify-center sm:mt-14">
+      <a
+        href={SITE.googleReviewsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-body inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white px-6 py-3 text-sm font-bold tracking-wide text-primary shadow-sm transition-colors hover:bg-primary hover:text-white"
+      >
+        Voir les autres avis sur Google
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

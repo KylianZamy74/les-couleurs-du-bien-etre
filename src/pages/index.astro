@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import Reviews from "../components/Reviews.astro";
 import Faq from "../components/Faq.astro";
 import { Image } from "astro:assets";
 import { localBusinessSchema, faqSchema } from "../data/schema";
@@ -176,6 +177,8 @@ const faqItems = [
       </div>
     </div>
   </section>
+
+  <Reviews />
 
   <!-- Déroulé d'une séance -->
   <section class="bg-white">

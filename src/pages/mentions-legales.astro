@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
 ---
 
 <BaseLayout
@@ -12,11 +13,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h1 class="font-display mb-8 text-4xl font-bold text-heading sm:text-5xl">Mentions légales</h1>
       <div class="font-body flex flex-col gap-4 text-sm leading-relaxed text-text">
         <p>
-          <!-- TODO: SIRET, forme juridique, adresse complète et numéro de téléphone à
-          fournir par Sarah avant mise en ligne — informations légales obligatoires,
-          non inventées ici. -->
-          Éditeur du site : Sarah Vidal — Les Couleurs du Bien-être, praticienne en soins bien-être à
-          Villaz, Haute-Savoie.
+          <!-- TODO: SIRET et forme juridique à faire confirmer par Sarah avant mise
+          en ligne (non inventés) — adresse/téléphone/e-mail repris de sa fiche
+          Google Business publique. -->
+          Éditeur du site : Sarah Vidal — Les Couleurs du Bien-être, praticienne en soins bien-être.
+        </p>
+        <p>
+          Adresse : {SITE.streetAddress}, {SITE.postalCode} {SITE.locality}<br />
+          Téléphone : {SITE.phone}<br />
+          E-mail : {SITE.email}
         </p>
         <p>Hébergement : Cloudflare, Inc.</p>
       </div>
