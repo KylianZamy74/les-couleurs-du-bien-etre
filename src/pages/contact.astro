@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbSchema } from "../data/schema";
+import { SITE } from "../data/site";
+---
+
+<BaseLayout
+  title="Contact | Les Couleurs du Bien-être | Villaz"
+  description="Contactez Sarah Vidal pour prendre rendez-vous à Villaz, en Haute-Savoie, ou poser toute question sur les soins proposés."
+  path="/contact"
+  jsonLd={breadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ])}
+>
+  <section class="bg-bg-cream">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h1 class="font-display text-4xl font-bold text-heading sm:text-5xl">Prenons contact</h1>
+      <p class="font-body text-base leading-relaxed text-text">
+        Le formulaire de contact arrive très bientôt sur cette page. En attendant, vous pouvez me joindre
+        directement par téléphone ou par e-mail.
+      </p>
+      <div class="flex flex-col items-center gap-2">
+        <a href={`tel:${SITE.phoneIntl}`} class="font-body text-lg font-bold text-primary hover:underline">
+          {SITE.phone}
+        </a>
+        <a href={`mailto:${SITE.email}`} class="font-body text-base font-semibold text-heading hover:underline">
+          {SITE.email}
+        </a>
+      </div>
+      <p class="font-body text-xs font-semibold tracking-wide text-heading/70 uppercase">
+        {SITE.streetAddress}, {SITE.postalCode} {SITE.locality} · à quelques minutes d'Annecy
+      </p>
+      <!-- TODO(contact-form): brancher le formulaire + envoi Resend ici (branche dédiée feat/contact-form-resend) -->
+    </div>
+  </section>
+</BaseLayout>

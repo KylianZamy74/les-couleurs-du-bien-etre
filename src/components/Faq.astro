@@ -1,0 +1,22 @@
+---
+interface Props {
+  items: { question: string; answer: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="mx-auto flex w-full max-w-3xl flex-col gap-3">
+  {items.map((item, index) => (
+    <details
+      class="reveal group rounded-xl bg-card-bg px-5 py-4 shadow-[0_4px_16px_-12px_rgba(0,0,0,0.4)] open:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.5)]"
+      style={`transition-delay: ${index * 60}ms`}
+    >
+      <summary class="font-body flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-heading marker:content-none">
+        {item.question}
+        <span class="font-display shrink-0 text-2xl text-primary transition-transform duration-300 group-open:rotate-45">+</span>
+      </summary>
+      <p class="font-body mt-3 text-sm leading-relaxed text-text">{item.answer}</p>
+    </details>
+  ))}
+</div>

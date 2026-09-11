@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+---
+
+<BaseLayout
+  title="Mentions légales | Les Couleurs du Bien-être"
+  description="Mentions légales du site Les Couleurs du Bien-être, Sarah Vidal, praticienne en soins bien-être à Villaz."
+  path="/mentions-legales"
+>
+  <section class="bg-white">
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+      <h1 class="font-display mb-8 text-4xl font-bold text-heading sm:text-5xl">Mentions légales</h1>
+      <div class="font-body flex flex-col gap-4 text-sm leading-relaxed text-text">
+        <p>
+          <!-- TODO: SIRET et forme juridique à faire confirmer par Sarah avant mise
+          en ligne (non inventés) — adresse/téléphone/e-mail repris de sa fiche
+          Google Business publique. -->
+          Éditeur du site : Sarah Vidal — Les Couleurs du Bien-être, praticienne en soins bien-être.
+        </p>
+        <p>
+          Adresse : {SITE.streetAddress}, {SITE.postalCode} {SITE.locality}<br />
+          Téléphone : {SITE.phone}<br />
+          E-mail : {SITE.email}
+        </p>
+        <p>Hébergement : Cloudflare, Inc.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

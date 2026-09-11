@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo-couleurs-du-bien-etre.webp";
+import { SITE, NAV_LINKS } from "../data/site";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-bg-tan">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6">
+    <Image src={logo} alt={SITE.name} width={144} height={144} class="h-18 w-18" />
+
+    <div class="flex flex-col items-center gap-1">
+      <p class="font-body text-sm font-extrabold tracking-wide text-heading uppercase">
+        {SITE.name}
+      </p>
+      <p class="font-script text-2xl text-heading">{SITE.tagline}</p>
+    </div>
+
+    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Plan du site">
+      {NAV_LINKS.map((link) => (
+        <a href={link.href} class="font-body text-sm font-semibold text-heading transition-colors hover:text-primary">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold tracking-wide text-heading/80 uppercase">
+      <a href="/mentions-legales" class="hover:text-primary">Mentions légales</a>
+      <span aria-hidden="true">·</span>
+      <a href="/conditions-generales-de-vente" class="hover:text-primary">Conditions générales de vente</a>
+      <span aria-hidden="true">·</span>
+      <a href="/contact" class="hover:text-primary">Contact</a>
+    </div>
+
+    <p class="font-body text-xs font-semibold tracking-wide text-heading/70 uppercase">
+      Haute-Savoie · Annecy · Villaz
+    </p>
+
+    <p class="font-body text-[11px] text-heading/60">
+      © {currentYear} {SITE.name} — tous droits réservés
+    </p>
+  </div>
+</footer>

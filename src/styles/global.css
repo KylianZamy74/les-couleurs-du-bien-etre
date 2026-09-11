@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@import "@fontsource/amatic-sc/400.css";
+@import "@fontsource/amatic-sc/700.css";
+@import "@fontsource/mulish/400.css";
+@import "@fontsource/mulish/600.css";
+@import "@fontsource/mulish/700.css";
+@import "@fontsource/mulish/800.css";
+@import "@fontsource/alex-brush/400.css";
+
+@theme {
+  --color-primary: #c67351;
+  --color-heading: #744431;
+  --color-nav: #834c37;
+  --color-text: #404041;
+  --color-btn-text: #324158;
+  --color-bg-cream: #f5f5dd;
+  --color-bg-tan: #e2c389;
+  --color-bg-gray: #dbdbdb;
+  --color-card-bg: #fafafa;
+  --color-border-soft: #cccccc;
+  /* --color-bg-lavender (#cabdff) volontairement absente : fond parasite laisse
+     par l'ancien developpeur sur le site Wix, confirme par Sarah, ne pas reproduire */
+
+  --font-display: "Amatic SC", cursive;
+  --font-body: "Mulish", sans-serif;
+  --font-script: "Alex Brush", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Gentle fade-and-rise entrance on load, pure CSS (no JS/IntersectionObserver:
+   guarantees content always ends at opacity 1 even if something goes wrong,
+   content is never held hidden waiting on a script). */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
