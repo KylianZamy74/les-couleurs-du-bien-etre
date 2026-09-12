@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Faq from "../../components/Faq.astro";
+import { Image } from "astro:assets";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "../../data/schema";
+
+import bgTexture from "../../assets/images/ombre-fleur-branche-zen.webp";
+import portrait from "../../assets/images/sarah-vidal-massage-mains.webp";
+import imgHuiles from "../../assets/images/huile-essentielle-flacon-compte-gouttes.webp";
+import lotusIcon from "../../assets/icons/icone-lotus-couleurs-bien-etre.svg";
+
+const faqItems = [
+  {
+    question: "Qu'est-ce qui rend le massage intuitif différent d'un massage classique ?",
+    answer:
+      "C'est un massage totalement sur mesure : il s'adapte à votre état physique, à vos ressentis, à vos besoins du moment et à vos points de tension, plutôt que de suivre un protocole fixe.",
+  },
+  {
+    question: "Quelles huiles essentielles sont utilisées pendant la séance ?",
+    answer:
+      "Des huiles essentielles choisies en fonction de vos besoins du moment. Ce sont des extraits naturels de plantes, obtenus par distillation à la vapeur d'eau, utilisés depuis des siècles pour leurs bienfaits.",
+  },
+  {
+    question: "Combien de temps dure la séance et quel est le tarif ?",
+    answer: "La séance dure 60 minutes, pour 75 €.",
+  },
+  {
+    question: "Le massage intuitif convient-il pour une première séance de massage bien-être ?",
+    answer:
+      "Oui, c'est un bon point de départ puisqu'il s'adapte à vous. N'hésitez pas à me parler de vos appréhensions ou de votre sensibilité lors de la prise de rendez-vous.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer:
+      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+  },
+];
+---
+
+<BaseLayout
+  title="Massage Intuitif | Les Couleurs du Bien-être | Villaz"
+  description="Massage intuitif sur mesure aux huiles essentielles avec Sarah Vidal à Villaz (Haute-Savoie) : détente, bien-être et reconnexion à soi."
+  path="/massages/massage-intuitif"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Accueil", path: "/" },
+      { name: "Massages", path: "/massages" },
+      { name: "Massage Intuitif", path: "/massages/massage-intuitif" },
+    ]),
+    serviceSchema({
+      name: "Massage intuitif",
+      description:
+        "Massage totalement sur mesure aux huiles essentielles, adapté à l'état physique de la personne, ses ressentis, ses besoins du moment et ses points de tension.",
+      path: "/massages/massage-intuitif",
+    }),
+    faqSchema(faqItems),
+  ]}
+>
+  <!-- Breadcrumb -->
+  <div class="bg-primary">
+    <div class="font-body mx-auto flex max-w-6xl items-center gap-2 px-4 py-4 text-xs font-bold tracking-widest text-white uppercase sm:px-6">
+      <a href="/massages" class="hover:underline">Massages</a>
+      <span aria-hidden="true">›</span>
+      <span>Massage Intuitif</span>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-6xl gap-16 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,440px)_1fr] lg:items-center lg:gap-24">
+      <div class="reveal relative mx-auto w-full max-w-md" style="aspect-ratio: 420 / 399;">
+        <Image
+          src={bgTexture}
+          alt=""
+          width={420}
+          height={399}
+          class="absolute bottom-0 left-0 h-full w-full object-cover"
+          aria-hidden="true"
+          priority
+        />
+        <Image
+          src={portrait}
+          alt="Sarah Vidal pratiquant un massage bien-être"
+          width={340}
+          height={230}
+          class="absolute top-[10%] -right-[14%] z-0 h-[52%] w-[76%] object-cover"
+          priority
+        />
+        <div
+          class="pointer-events-none absolute top-[10%] -right-[14%] z-10 h-[52%] w-[76%] -translate-x-3 -translate-y-3 border-[3px] border-primary"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+      <div class="reveal flex flex-col gap-5">
+        <h1 class="font-display text-5xl font-bold text-primary sm:text-6xl">Massage Intuitif</h1>
+        <p class="font-body text-base font-bold text-heading">
+          Partez à la rencontre de votre corps et de vos sensations
+        </p>
+        <p class="font-body text-base leading-relaxed text-text">
+          Le massage intuitif est un massage totalement sur mesure. Le but de ce massage est de s'adapter
+          à l'état physique de la personne, ses ressentis, ses besoins du moment, à ses points de tension.
+        </p>
+        <p class="font-body text-lg text-primary italic">
+          « Le massage intuitif permet de remettre en lien le corps et l'esprit. »
+        </p>
+        <p class="font-body text-base font-bold text-heading">La séance dure 60 minutes, 75 €.</p>
+        <a
+          href="/contact"
+          class="font-body inline-flex w-fit items-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+        >
+          Me contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Huiles essentielles -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-start px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-0">
+      <div class="reveal relative z-10 flex flex-col gap-4 bg-white p-8 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.3)] sm:p-10 sm:pr-16">
+        <div class="flex items-center gap-3">
+          <Image src={lotusIcon} alt="" width={64} height={64} class="h-16 w-16" />
+          <h2 class="font-display text-4xl font-bold text-primary sm:text-5xl">Les huiles essentielles</h2>
+        </div>
+        <p class="font-body text-base leading-relaxed text-text">
+          Les huiles essentielles sont obtenues par distillation à la vapeur d'eau de plantes aromatiques.
+          Elles sont des extraits naturels de plantes puissantes et d'une extraordinaire efficacité, tant
+          sur le plan de la santé que de la beauté et du bien-être. Celles-ci sont utilisées depuis des
+          siècles pour se soigner.
+        </p>
+      </div>
+      <div class="reveal relative z-20 mx-auto w-full max-w-[480px] lg:-ml-8" style="aspect-ratio: 470/338">
+        <Image
+          src={imgHuiles}
+          alt="Flacon compte-gouttes d'huile essentielle"
+          width={470}
+          height={338}
+          class="absolute inset-0 z-0 h-full w-full object-cover"
+        />
+        <div class="pointer-events-none absolute -top-5 -left-5 z-10 h-full w-full border-[3px] border-primary" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+      <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+        Le massage intuitif, en bref
+      </p>
+      <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+        Pour qui est fait le massage intuitif ?
+      </h2>
+      <p class="font-body text-base leading-relaxed text-text">
+        Le massage intuitif s'adresse à toute personne cherchant un moment de détente sur mesure : il n'y a
+        pas de protocole figé, la séance s'ajuste à votre état physique, à vos ressentis et à vos points de
+        tension du jour. C'est aussi un bon premier pas si vous découvrez le massage bien-être, puisqu'il
+        s'adapte à vous plutôt que l'inverse.
+      </p>
+    </div>
+  </section>
+
+  <p class="font-body mx-auto max-w-3xl px-4 pb-12 text-center text-xs leading-relaxed text-heading/60 sm:px-6">
+    Ce massage est à visée de détente, de bien-être et de relaxation, non thérapeutique —
+    <a href="/conditions-generales-de-vente" class="underline hover:text-primary">conditions générales de vente</a>.
+  </p>
+
+  <!-- FAQ -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
+        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
+      </div>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+
+  <!-- Maillage interne -->
+  <section class="bg-white">
+    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <p class="font-body text-sm leading-relaxed text-text">
+        Vous hésitez avec un autre soin ?
+        <a href="/massages/massage-pierres-chaudes" class="font-bold text-primary hover:underline">
+          Découvrez le massage aux pierres chaudes
+        </a>
+        ou <a href="/massages" class="font-bold text-primary hover:underline">retrouvez tous les massages</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
