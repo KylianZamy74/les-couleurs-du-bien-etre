@@ -11,7 +11,9 @@ interface Props {
 
 const { title, description, path, image, jsonLd } = Astro.props;
 const canonical = new URL(path, SITE.url).toString();
-const ogImage = image ? new URL(image, SITE.url).toString() : new URL("/og-image.jpg", SITE.url).toString();
+const ogImage = image
+  ? new URL(image, SITE.url).toString()
+  : new URL("/images/logo-couleurs-du-bien-etre.webp", SITE.url).toString();
 const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 

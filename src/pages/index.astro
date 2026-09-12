@@ -46,7 +46,7 @@ const faqItems = [
 ---
 
 <BaseLayout
-  title="Sarah Vidal | Praticienne en massages et soins énergétiques à Villaz"
+  title="Les Couleurs du Bien-être par Sarah Vidal | Soins à Villaz 74340"
   description="Sarah Vidal, praticienne en soins bien-être à Villaz. Massages, reiki, bols tibétains et accompagnement personnalisé en Haute-Savoie."
   path="/"
   jsonLd={[localBusinessSchema, faqSchema(faqItems)]}
@@ -55,9 +55,10 @@ const faqItems = [
   <section class="relative isolate flex min-h-[420px] items-end overflow-hidden sm:min-h-[480px]">
     <Image
       src={heroMassage}
-      alt="Massage relaxant du dos et des épaules, Les couleurs du bien-être"
+      alt="Massage relaxant du dos et des épaules"
       width={1600}
       height={900}
+      priority
       class="absolute -inset-y-[60px] inset-x-0 -z-10 h-[calc(100%+120px)] w-full object-cover"
       data-parallax="0.25"
       data-parallax-max="50"
@@ -77,7 +78,7 @@ const faqItems = [
         <div class="reveal relative mx-auto w-full max-w-[360px]" style="aspect-ratio: 405 / 385;">
           <Image
             src={textureSable}
-            alt="Cercles tracés dans le sable, ambiance zen"
+            alt="Cercles tracés dans le sable, symbole de méditation zen"
             width={420}
             height={399}
             class="absolute inset-0 h-full w-full rounded-lg object-cover"
@@ -92,7 +93,7 @@ const faqItems = [
             <div class="absolute left-0 top-0 h-[103.2%] w-[103.4%] rounded-lg bg-primary" aria-hidden="true"></div>
             <Image
               src={portraitSarah}
-              alt="Sarah Vidal, praticienne en soins bien-être"
+              alt="Sarah Vidal, praticienne en soins bien-être à Villaz"
               width={320}
               height={302}
               class="absolute inset-0 h-full w-full rounded-lg object-cover"
@@ -141,6 +142,7 @@ const faqItems = [
           description="Massage sur mesure aux huiles essentielles, plusieurs techniques utilisées en fonction de vos besoins."
           meta="Massage de 60 minutes · 75 €"
           image={imgMassageIntuitif}
+          alt="Sarah Vidal pratiquant un massage bien-être"
         />
         <ServiceCard
           href="/massages/massage-pierres-chaudes"
@@ -148,6 +150,7 @@ const faqItems = [
           description="Massage enveloppant avec un profond relâchement musculaire."
           meta="Massage de 75 minutes · 90 €"
           image={imgPierresChaudes}
+          alt="Massage aux pierres chaudes dans une ambiance spa feutrée"
           delay={80}
         />
         <ServiceCard
@@ -156,6 +159,7 @@ const faqItems = [
           description="Soin énergétique non conventionnel d'origine japonaise, pratiqué par apposition des mains."
           meta="Soin de 60 minutes · 65 €"
           image={imgReiki}
+          alt="Huiles essentielles et cristaux préparés pour un massage"
           delay={160}
         />
         <ServiceCard
@@ -164,6 +168,7 @@ const faqItems = [
           description="Ensemble d'exercices et de techniques mis en place pour votre épanouissement personnel."
           meta="Bilan 1h45 · Séance 1h30"
           image={imgAccompagnement}
+          alt="Séance d'accompagnement personnalisé avec Sarah Vidal"
           delay={240}
         />
         <ServiceCard
@@ -172,6 +177,7 @@ const faqItems = [
           description="Soin qui utilise les sons et vibrations des bols tibétains pour vous transporter dans un vrai cocon."
           meta="Soin de 75 minutes · 85 €"
           image={imgBolsTibetains}
+          alt="Sarah Vidal réalisant un soin au bol tibétain"
           delay={320}
         />
       </div>
