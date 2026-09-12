@@ -8,10 +8,11 @@ interface Props {
   description: string;
   meta: string;
   image: ImageMetadata;
+  alt: string;
   delay?: number;
 }
 
-const { href, title, description, meta, image, delay = 0 } = Astro.props;
+const { href, title, description, meta, image, alt, delay = 0 } = Astro.props;
 
 // Never request an upscale: some source photos are smaller than the card's
 // display size, which makes Astro's image service error out. Cap the
@@ -29,7 +30,7 @@ const targetHeight = Math.round(targetWidth * (image.height / image.width));
   <div class="aspect-[4/3] overflow-hidden">
     <Image
       src={image}
-      alt=""
+      alt={alt}
       width={targetWidth}
       height={targetHeight}
       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
