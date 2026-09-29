@@ -25,7 +25,7 @@ const targetHeight = Math.round(targetWidth * (image.height / image.width));
 <a
   href={href}
   class="reveal group flex flex-col overflow-hidden rounded-2xl bg-card-bg shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1"
-  style={delay ? `transition-delay: ${delay}ms` : undefined}
+  style={delay ? `--reveal-delay: ${delay}ms` : undefined}
 >
   <div class="aspect-[4/3] overflow-hidden">
     <Image
