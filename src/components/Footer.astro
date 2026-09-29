@@ -25,20 +25,20 @@ const currentYear = new Date().getFullYear();
       ))}
     </nav>
 
-    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold tracking-wide text-heading/80 uppercase">
+    <address class="font-body flex flex-col items-center gap-1 text-sm text-heading not-italic">
+      <span>{SITE.streetAddress}, {SITE.postalCode} {SITE.locality} ({SITE.region})</span>
+      <a href={`tel:${SITE.phoneIntl}`} class="font-semibold hover:text-primary">{SITE.phone}</a>
+      <a href={`mailto:${SITE.email}`} class="font-semibold hover:text-primary">{SITE.email}</a>
+    </address>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs font-semibold tracking-wide text-heading/80 uppercase">
       <a href="/mentions-legales" class="hover:text-primary">Mentions légales</a>
-      <span aria-hidden="true">·</span>
       <a href="/conditions-generales-de-vente" class="hover:text-primary">Conditions générales de vente</a>
-      <span aria-hidden="true">·</span>
       <a href="/contact" class="hover:text-primary">Contact</a>
     </div>
 
-    <p class="font-body text-xs font-semibold tracking-wide text-heading/70 uppercase">
-      Haute-Savoie · Annecy · Villaz
-    </p>
-
     <p class="font-body text-[11px] text-heading/60">
-      © {currentYear} {SITE.name} · tous droits réservés
+      © {currentYear} {SITE.name}, tous droits réservés
     </p>
   </div>
 </footer>
