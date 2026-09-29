@@ -1,6 +1,6 @@
 ---
 import ServiceLayout from "../../layouts/ServiceLayout.astro";
-import { CATEGORIES } from "../../data/site";
+import { CATEGORIES, BOOKING_ANSWER } from "../../data/site";
 
 import bgTexture from "../../assets/images/ombre-fleur-branche-zen.webp";
 import imgSeance from "../../assets/images/massage-pierres-chaudes-seance.webp";
@@ -34,8 +34,7 @@ const faqItems = [
   },
   {
     question: "Comment réserver une séance ?",
-    answer:
-      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+    answer: BOOKING_ANSWER,
   },
 ];
 ---
