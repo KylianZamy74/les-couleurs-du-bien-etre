@@ -44,3 +44,8 @@ export const NAV_LINKS: NavLink[] = [
   },
   { label: "Accompagnement", href: "/accompagnement" },
 ];
+
+export const CATEGORIES = {
+  massages: { name: "Massages", path: "/massages", all: "tous les massages" },
+  soins: { name: "Soins énergétiques", path: "/soins-energetiques", all: "tous les soins énergétiques" },
+} as const;

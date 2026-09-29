@@ -1,0 +1,103 @@
+---
+import CategoryLayout from "../layouts/CategoryLayout.astro";
+
+import heroSoins from "../assets/images/bougie-bouddha-ambiance-zen.webp";
+import imgReiki from "../assets/images/cristaux-lithotherapie-fleur-de-vie.webp";
+import imgBols from "../assets/images/bols-tibetains-seance-sonore.webp";
+
+const faqItems = [
+  {
+    question: "Qu'est-ce qu'un soin énergétique ?",
+    answer:
+      "Un soin énergétique est un soin de bien-être qui agit sur l'énergie vitale, pour vous aider à retrouver l'harmonie entre le corps, l'âme et l'esprit. Je vous propose deux soins : le reiki, par imposition des mains, et le voyage sonore aux bols tibétains.",
+  },
+  {
+    question: "Quelle différence entre le reiki et les bols tibétains ?",
+    answer:
+      "Le reiki est un soin d'origine japonaise, par imposition des mains, dans le calme. Le voyage sonore utilise les sons et les vibrations des bols tibétains, posés à même le corps ou autour de vous. Si vous hésitez, parlons-en ensemble.",
+  },
+  {
+    question: "Combien de temps dure une séance et quel est le tarif ?",
+    answer:
+      "Le soin reiki dure 60 minutes pour 65 €. Le voyage sonore aux bols tibétains dure 75 minutes pour 85 €.",
+  },
+  {
+    question: "Les soins énergétiques remplacent-ils un traitement médical ?",
+    answer:
+      "Non. Ce sont des soins de bien-être, complémentaires : ils ne remplacent ni un diagnostic, ni un traitement, ni un avis médical.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer:
+      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+  },
+];
+---
+
+<CategoryLayout
+  title="Soins énergétiques à Villaz | Les Couleurs du Bien-être"
+  description="Soins énergétiques à Villaz, près d'Annecy, par Sarah Vidal : soin reiki et voyage sonore aux bols tibétains pour retrouver votre harmonie."
+  path="/soins-energetiques"
+  name="Soins énergétiques"
+  tagline="Retrouvez l'harmonie entre corps-âme-esprit"
+  heroImage={heroSoins}
+  heroAlt="Bougie allumée devant une statue de Bouddha, ambiance zen"
+  kicker="Deux soins pour vous reconnecter"
+  heading="Des soins énergétiques à Villaz"
+  cards={[
+    {
+      href: "/soins-energetiques/reiki",
+      title: "Soins Reiki",
+      description: "Soin énergétique par imposition de mains, d'origine japonaise.",
+      serviceDescription:
+        "Soin énergétique d'origine japonaise par imposition des mains : le praticien canalise l'énergie universelle pour la rééquilibrer.",
+      image: imgReiki,
+      alt: "Cristaux et pierres semi-précieuses posés sur une fleur de vie",
+    },
+    {
+      href: "/soins-energetiques/bols-tibetain",
+      title: "Voyage sonore aux bols tibétains",
+      description: "Les sons et vibrations des bols tibétains vous transporteront dans un vrai cocon.",
+      serviceDescription:
+        "Massage vibratoire aux bols tibétains posés à même le corps : leurs sons et vibrations plongent dans un état de détente et de relaxation profonde.",
+      image: imgBols,
+      alt: "Bols tibétains installés pour une séance de voyage sonore",
+    },
+  ]}
+  disclaimer="Ces soins sont à visée de bien-être et de relaxation, non thérapeutique, et ne remplacent pas un avis médical"
+  faqItems={faqItems}
+  cta={{
+    title: "Envie de réserver un soin ?",
+    text: "Écrivez-moi pour convenir ensemble du soin et du créneau qui vous conviennent le mieux.",
+  }}
+>
+  <p class="font-body text-base leading-relaxed text-text">
+    Le soin reiki et le voyage sonore aux bols tibétains sont deux soins énergétiques pensés pour vous
+    aider à retrouver l'harmonie entre le corps, l'âme et l'esprit. Chaque séance se déroule dans un cadre
+    calme et bienveillant à Villaz, à quelques minutes d'Annecy, pour vous offrir un vrai moment de
+    reconnexion avec vous-même.
+  </p>
+
+  <Fragment slot="extra">
+    <!-- Qu'est-ce qu'un soin énergétique -->
+    <section class="bg-bg-cream">
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+          Le soin énergétique, en bref
+        </p>
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Qu'est-ce qu'un soin énergétique ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          Un soin énergétique, c'est un temps rien que pour vous, pour relâcher ce qui pèse et vous
+          ressourcer. Par l'imposition des mains avec le reiki, ou par les sons et les vibrations des bols
+          tibétains, le soin vous aide à retrouver l'essence de votre énergie vitale.
+        </p>
+        <p class="font-body mt-4 text-base leading-relaxed text-text">
+          Il n'y a rien à préparer ni à savoir faire : vous vous installez confortablement, allongé, et
+          vous vous laissez aller, à votre rythme.
+        </p>
+      </div>
+    </section>
+  </Fragment>
+</CategoryLayout>
