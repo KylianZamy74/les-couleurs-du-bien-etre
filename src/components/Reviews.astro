@@ -16,7 +16,7 @@ import { SITE } from "../data/site";
       {reviews.map((review, index) => (
         <figure
           class="reveal flex flex-col gap-4 rounded-2xl bg-card-bg p-6 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]"
-          style={`animation-delay:${index * 70}ms`}
+          style={`--reveal-delay: ${index * 70}ms`}
         >
           <div class="font-display text-2xl leading-none text-primary" aria-hidden="true">{"★".repeat(review.rating)}</div>
           <blockquote class="font-body flex-1 text-sm leading-relaxed text-text">

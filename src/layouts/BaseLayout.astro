@@ -20,6 +20,7 @@ const { title, description, path, image, jsonLd } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <link rel="icon" href="/images/logo-couleurs-du-bien-etre.webp" type="image/webp" />
     <SEO title={title} description={description} path={path} image={image} jsonLd={jsonLd} />
   </head>
@@ -29,6 +30,28 @@ const { title, description, path, image, jsonLd } = Astro.props;
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Apparition au défilement des éléments .reveal (voir global.css). Sans
+      // IntersectionObserver, tout est affiché d'emblée.
+      const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -8% 0px" },
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("is-visible"));
+      }
+    </script>
 
     <script>
       // Very light parallax on [data-parallax] elements (currently the hero

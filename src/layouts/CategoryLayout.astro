@@ -70,7 +70,7 @@ const { title, description, path, name, tagline, heroImage, heroAlt, kicker, hea
           <a
             href={card.href}
             class="reveal group flex flex-col overflow-hidden rounded-md bg-bg-cream p-3 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.65)]"
-            style={index ? `animation-delay: ${index * 80}ms` : undefined}
+            style={index ? `--reveal-delay: ${index * 80}ms` : undefined}
           >
             <div class="overflow-hidden rounded-sm">
               <Image
