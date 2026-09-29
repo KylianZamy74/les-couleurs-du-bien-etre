@@ -43,7 +43,11 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: "Accompagnement", href: "/accompagnement" },
+  { label: "Blog", href: "/blog" },
 ];
+
+// Pages publiées mais exclues de l'indexation (balise robots + sitemap).
+export const NOINDEX_PATHS: string[] = ["/blog"];
 
 export const CATEGORIES = {
   massages: { name: "Massages", path: "/massages", all: "tous les massages" },

@@ -1,5 +1,5 @@
 ---
-import { SITE } from "../data/site";
+import { SITE, NOINDEX_PATHS } from "../data/site";
 
 interface Props {
   title: string;
@@ -20,6 +20,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
+{NOINDEX_PATHS.includes(path) && <meta name="robots" content="noindex, follow" />}
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />

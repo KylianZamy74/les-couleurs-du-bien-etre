@@ -29,7 +29,7 @@ function isActive(href: string) {
           <a
             href={link.href}
             class:list={[
-              "font-body inline-block rounded-md px-3 py-2 text-sm font-extrabold tracking-wide uppercase transition-colors",
+              "font-body inline-block rounded-md px-3 py-2 text-sm font-extrabold tracking-wide whitespace-nowrap uppercase transition-colors",
               isActive(link.href) ? "text-primary" : "text-nav hover:text-primary",
             ]}
           >

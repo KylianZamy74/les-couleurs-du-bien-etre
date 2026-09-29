@@ -1,14 +1,15 @@
 import type { APIRoute } from "astro";
-import { SITE } from "../data/site";
+import { SITE, NOINDEX_PATHS } from "../data/site";
 
-// Toutes les pages .astro du dossier pages sont publiques : le sitemap se
-// met à jour tout seul quand une page est ajoutée ou supprimée.
+// Toutes les pages .astro du dossier pages, hors NOINDEX_PATHS : le sitemap
+// se met à jour tout seul quand une page est ajoutée ou supprimée.
 const pages = Object.keys(import.meta.glob("./**/*.astro")).map((file) =>
   file.replace(/^\./, "").replace(/(\/index)?\.astro$/, "") || "/",
 );
 
 export const GET: APIRoute = () => {
   const urls = pages
+    .filter((path) => !NOINDEX_PATHS.includes(path))
     .sort()
     .map((path) => `  <url><loc>${new URL(path, SITE.url).toString()}</loc></url>`)
     .join("\n");
