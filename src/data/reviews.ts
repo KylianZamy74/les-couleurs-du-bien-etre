@@ -1,5 +1,5 @@
 /**
- * Sélection de 4 avis Google réels (sur 25, note globale 5,0/5), choisis pour
+ * Sélection de 4 avis Google réels (sur 27, note globale 5,0/5, vérifié le 2026-09-29), choisis pour
  * leur pertinence SEO/GEO : mention d'un service précis, de la localisation,
  * texte complet (pas tronqué par Google). Récupérés le 2026-09-10 via
  * recherche Google ("Les couleurs du bien-être Sarah Vidal Villaz").
@@ -30,6 +30,6 @@ export const reviews = [
 
 export const reviewsSummary = {
   ratingValue: 5.0,
-  reviewCount: 25,
+  reviewCount: 27,
   source: "Google",
 };
