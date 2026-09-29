@@ -20,7 +20,7 @@ const faqItems = [
   {
     question: "Combien de temps dure la séance et quel est le tarif ?",
     answer:
-      "La séance dure 75 minutes, pour 90 €. Elle est un peu plus longue qu'un massage intuitif, la mise en place et le retrait des pierres demandant un peu plus de temps.",
+      "La séance dure 1h15, pour 90 €. Elle est un peu plus longue qu'un massage intuitif, la mise en place et le retrait des pierres demandant un peu plus de temps.",
   },
   {
     question: "Quelle différence avec le massage intuitif ?",
@@ -42,13 +42,13 @@ const faqItems = [
 
 <ServiceLayout
   title="Massage pierres chaudes à Villaz | Couleurs du Bien-être"
-  description="Massage aux pierres chaudes volcaniques à Villaz, près d'Annecy : relâchement musculaire profond. Séance de 75 min, 90 €. Réservez avec Sarah Vidal."
+  description="Massage aux pierres chaudes volcaniques à Villaz, près d'Annecy : relâchement musculaire profond. Séance de 1h15, 90 €. Réservez avec Sarah Vidal."
   path="/massages/massage-pierres-chaudes"
   name="Massage aux pierres chaudes"
   serviceDescription="Massage enveloppant aux pierres volcaniques chaudes : l'action des pierres chaudes sur la peau apporte un relâchement musculaire profond et améliore la circulation sanguine."
   category={CATEGORIES.massages}
   tagline="Une rencontre privilégiée entre massage et chaleur"
-  price="Séance de 75 minutes, 90 €."
+  prices={[{ label: "Séance", duration: "1h15", price: "90 €" }]}
   bgImage={bgTexture}
   photo={imgSeance}
   photoAlt="Sarah Vidal pratiquant un massage aux pierres chaudes sur le dos à Villaz"
@@ -98,7 +98,7 @@ const faqItems = [
         <p class="font-body text-base leading-relaxed text-text">
           La séance commence par un temps d'échange pour comprendre vos besoins du moment et vos zones de
           tension. Les pierres chaudes sont ensuite déposées sur le corps et utilisées pour masser, en
-          alternance avec les mains. Comptez 75 minutes : la mise en place et le retrait des pierres demandent
+          alternance avec les mains. Comptez 1h15 : la mise en place et le retrait des pierres demandent
           un peu plus de temps qu'un massage classique. Les séances ont lieu à Villaz, à quelques minutes
           d'Annecy.
         </p>

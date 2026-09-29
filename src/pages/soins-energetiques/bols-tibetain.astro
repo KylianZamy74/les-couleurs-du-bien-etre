@@ -19,7 +19,7 @@ const faqItems = [
   },
   {
     question: "Combien de temps dure la séance et quel est le tarif ?",
-    answer: "Le voyage sonore aux bols tibétains dure 75 minutes, pour 85 €.",
+    answer: "Le voyage sonore aux bols tibétains dure 1h15, pour 85 €.",
   },
   {
     question: "Faut-il savoir méditer pour profiter du soin ?",
@@ -34,7 +34,7 @@ const faqItems = [
   {
     question: "Bols tibétains ou reiki, lequel choisir ?",
     answer:
-      "Le voyage sonore (75 minutes, 85 €) passe par les sons et les vibrations des bols. Le reiki (60 minutes, 65 €) passe par l'imposition des mains, dans le calme. Si vous hésitez, parlons-en ensemble.",
+      "Le voyage sonore (1h15, 85 €) passe par les sons et les vibrations des bols. Le reiki (1h, 65 €) passe par l'imposition des mains, dans le calme. Si vous hésitez, parlons-en ensemble.",
   },
   {
     question: "Comment réserver une séance ?",
@@ -46,13 +46,13 @@ const faqItems = [
 
 <ServiceLayout
   title="Bols tibétains à Villaz | Couleurs du Bien-être"
-  description="Voyage sonore aux bols tibétains à Villaz, près d'Annecy : massage vibratoire et relaxation profonde. Séance de 75 min, 85 €, avec Sarah Vidal."
+  description="Voyage sonore aux bols tibétains à Villaz, près d'Annecy : massage vibratoire et relaxation profonde. Séance de 1h15, 85 €, avec Sarah Vidal."
   path="/soins-energetiques/bols-tibetain"
   name="Voyage sonore aux bols tibétains"
   serviceDescription="Massage vibratoire aux bols tibétains posés à même le corps : leurs sons et vibrations plongent dans un état de détente et de relaxation profonde."
   category={CATEGORIES.soins}
   tagline="Rééquilibre les énergies du corps"
-  price="La séance dure 75 minutes, 85 €."
+  prices={[{ label: "Séance", duration: "1h15", price: "85 €" }]}
   bgImage={bgTexture}
   photo={imgSoin}
   photoAlt="Sarah Vidal jouant d'un bol tibétain lors d'un voyage sonore à Villaz"
@@ -115,7 +115,7 @@ const faqItems = [
           Comment se déroule un voyage sonore ?
         </h2>
         <p class="font-body text-base leading-relaxed text-text">
-          La séance dure 75 minutes. Nous commençons par un temps d'échange sur vos besoins du moment. Vous
+          La séance dure 1h15. Nous commençons par un temps d'échange sur vos besoins du moment. Vous
           vous installez ensuite allongé, et je pose les bols à même le corps ou autour de vous avant de les
           activer, avec douceur et à un rythme adapté à vous-même.
         </p>

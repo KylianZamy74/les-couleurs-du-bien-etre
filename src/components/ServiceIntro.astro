@@ -5,11 +5,13 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
+export type Price = { label: string; duration: string; price: string };
+
 interface Props {
   title: string;
   headingLevel?: "h1" | "h2";
   tagline: string;
-  prices: string[];
+  prices: Price[];
   bgImage: ImageMetadata;
   photo: ImageMetadata;
   photoAlt: string;
@@ -49,9 +51,14 @@ const Heading = headingLevel;
       <Heading class="font-display text-5xl font-bold text-primary sm:text-6xl">{title}</Heading>
       <p class="font-body text-base font-bold text-heading">{tagline}</p>
       <slot />
-      <div>
-        {prices.map((price) => <p class="font-body text-base font-bold text-heading">{price}</p>)}
-      </div>
+      <dl class="flex flex-wrap gap-3">
+        {prices.map(({ label, duration, price }) => (
+          <div class="inline-flex items-baseline gap-2 rounded-full bg-primary/10 px-5 py-2">
+            <dt class="font-body text-[11px] font-extrabold tracking-widest text-primary uppercase">{label}</dt>
+            <dd class="font-body text-base font-bold text-heading">{duration} · {price}</dd>
+          </div>
+        ))}
+      </dl>
       <a
         href="/contact"
         class="font-body inline-flex w-fit items-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"

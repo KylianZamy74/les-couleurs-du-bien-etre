@@ -19,7 +19,7 @@ const faqItems = [
   },
   {
     question: "Combien de temps dure la séance et quel est le tarif ?",
-    answer: "La séance dure 60 minutes, pour 75 €.",
+    answer: "La séance dure 1h, pour 75 €.",
   },
   {
     question: "Le massage intuitif convient-il pour une première séance de massage bien-être ?",
@@ -39,7 +39,7 @@ const faqItems = [
   {
     question: "Massage intuitif ou massage aux pierres chaudes, lequel choisir ?",
     answer:
-      "Le massage intuitif (60 minutes, 75 €) s'adapte entièrement à vos besoins du jour, sans protocole fixe. Le massage aux pierres chaudes (75 minutes, 90 €) est plus enveloppant, avec un relâchement musculaire profond.",
+      "Le massage intuitif (1h, 75 €) s'adapte entièrement à vos besoins du jour, sans protocole fixe. Le massage aux pierres chaudes (1h15, 90 €) est plus enveloppant, avec un relâchement musculaire profond.",
   },
 ];
 ---
@@ -52,7 +52,7 @@ const faqItems = [
   serviceDescription="Massage totalement sur mesure aux huiles essentielles, adapté à l'état physique de la personne, ses ressentis, ses besoins du moment et ses points de tension."
   category={CATEGORIES.massages}
   tagline="Partez à la rencontre de votre corps et de vos sensations"
-  price="La séance dure 60 minutes, 75 €."
+  prices={[{ label: "Séance", duration: "1h", price: "75 €" }]}
   bgImage={bgTexture}
   photo={portrait}
   photoAlt="Sarah Vidal pratiquant un massage bien-être"
