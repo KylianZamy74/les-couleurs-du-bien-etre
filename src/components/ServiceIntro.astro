@@ -13,11 +13,12 @@ interface Props {
   tagline: string;
   prices: Price[];
   bgImage: ImageMetadata;
+  bgAlt: string;
   photo: ImageMetadata;
   photoAlt: string;
 }
 
-const { title, headingLevel = "h1", tagline, prices, bgImage, photo, photoAlt } = Astro.props;
+const { title, headingLevel = "h1", tagline, prices, bgImage, bgAlt, photo, photoAlt } = Astro.props;
 const Heading = headingLevel;
 ---
 
@@ -26,11 +27,10 @@ const Heading = headingLevel;
     <div class="reveal relative mx-auto w-full max-w-md" style="aspect-ratio: 420 / 399;">
       <Image
         src={bgImage}
-        alt=""
+        alt={bgAlt}
         width={420}
         height={399}
         class="absolute bottom-0 left-0 h-full w-full object-cover"
-        aria-hidden="true"
         priority
       />
       <Image
