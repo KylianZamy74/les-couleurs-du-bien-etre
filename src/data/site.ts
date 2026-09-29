@@ -39,7 +39,7 @@ export const NAV_LINKS: NavLink[] = [
     href: "/soins-energetiques",
     children: [
       { label: "Reiki", href: "/soins-energetiques/reiki" },
-      { label: "Bols tibétains", href: "/soins-energetiques/bols-tibetain" },
+      { label: "Bols tibétains", href: "/soins-energetiques/bols-tibetains" },
     ],
   },
   { label: "Accompagnement", href: "/accompagnement" },
