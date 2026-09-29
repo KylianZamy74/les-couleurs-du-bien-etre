@@ -15,7 +15,7 @@ function isActive(href: string) {
   <div class="mx-auto flex h-[77px] max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
     <a href="/" class="flex shrink-0 items-center gap-2">
       <Image src={logo} alt="Logo Les couleurs du bien-être par Sarah Vidal" width={88} height={88} class="h-11 w-11" />
-      <span class="hidden flex-col leading-tight sm:flex lg:hidden xl:flex">
+      <span class="flex flex-col leading-tight lg:hidden xl:flex">
         <span class="font-body text-xs font-extrabold tracking-wide text-heading uppercase">
           {SITE.name}
         </span>
@@ -56,7 +56,7 @@ function isActive(href: string) {
     <div class="flex shrink-0 items-center gap-2">
       <a
         href="/contact"
-        class="font-body inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold tracking-wide whitespace-nowrap text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+        class="font-body hidden items-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold tracking-wide whitespace-nowrap text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98] lg:inline-flex"
       >
         Me contacter
       </a>
@@ -106,6 +106,14 @@ function isActive(href: string) {
           )}
         </li>
       ))}
+      <li class="menu-item pt-6" style={`--i: ${NAV_LINKS.length}`}>
+        <a
+          href="/contact"
+          class="font-body flex w-full items-center justify-center rounded-full bg-primary px-7 py-3.5 text-base font-bold tracking-wide text-white shadow-sm transition-transform active:scale-[0.98]"
+        >
+          Me contacter
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
