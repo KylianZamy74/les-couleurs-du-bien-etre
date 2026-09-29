@@ -1,6 +1,6 @@
 ---
 import ServiceLayout from "../../layouts/ServiceLayout.astro";
-import { CATEGORIES } from "../../data/site";
+import { CATEGORIES, BOOKING_ANSWER } from "../../data/site";
 
 import bgTexture from "../../assets/images/arbre-lumiere-nature-zen.webp";
 import imgReiki from "../../assets/images/soin-energetique-reiki-imposition-mains.webp";
@@ -33,8 +33,7 @@ const faqItems = [
   },
   {
     question: "Comment réserver une séance ?",
-    answer:
-      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+    answer: BOOKING_ANSWER,
   },
 ];
 ---

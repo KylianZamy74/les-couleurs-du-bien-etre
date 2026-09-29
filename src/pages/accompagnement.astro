@@ -5,6 +5,7 @@ import ServiceIntro from "../components/ServiceIntro.astro";
 import FaqSection from "../components/FaqSection.astro";
 import { Image } from "astro:assets";
 import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
+import { SITE } from "../data/site";
 
 import heroImage from "../assets/images/meditation-main-mudra-serenite.webp";
 import bgTexture from "../assets/images/livre-ouvert-pages-lecture.webp";
@@ -64,7 +65,7 @@ const faqItems = [
   {
     question: "Comment prendre rendez-vous ?",
     answer:
-      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau pour votre bilan.",
+      `Le plus simple est de m'appeler au ${SITE.phone} ou de m'écrire à ${SITE.email} : nous convenons ensemble d'un créneau pour votre bilan.`,
   },
 ];
 ---
