@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page introuvable | Les Couleurs du Bien-être"
+  description="Cette page n'existe pas ou a été déplacée. Retrouvez les massages, soins énergétiques et l'accompagnement de Sarah Vidal à Villaz."
+  path="/404"
+>
+  <section class="bg-bg-cream">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h1 class="font-display text-4xl font-bold text-heading sm:text-5xl">Cette page s'est égarée</h1>
+      <p class="font-body text-base leading-relaxed text-text">
+        La page que vous cherchez n'existe pas, ou elle a changé d'adresse. Prenez le temps de respirer, et
+        reprenons le chemin ensemble.
+      </p>
+      <p class="font-body text-base leading-relaxed text-text">
+        Découvrez{" "}
+        <a href="/massages" class="font-bold text-primary hover:underline">les massages</a>,{" "}
+        <a href="/soins-energetiques" class="font-bold text-primary hover:underline">les soins énergétiques</a> ou{" "}
+        <a href="/accompagnement" class="font-bold text-primary hover:underline">l'accompagnement personnalisé</a>.
+      </p>
+      <a
+        href="/"
+        class="font-body rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+      >
+        Retour à l'accueil
+      </a>
+    </div>
+  </section>
+</BaseLayout>
