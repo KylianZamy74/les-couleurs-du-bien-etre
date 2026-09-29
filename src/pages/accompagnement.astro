@@ -98,7 +98,10 @@ const faqItems = [
     title="Accompagnement"
     headingLevel="h2"
     tagline="Les solutions sont en vous."
-    prices={["Le bilan dure 1h45, 90 €.", "Une séance dure 1h30, 85 €."]}
+    prices={[
+      { label: "Bilan", duration: "1h45", price: "90 €" },
+      { label: "Séance", duration: "1h30", price: "85 €" },
+    ]}
     bgImage={bgTexture}
     photo={imgSeance}
     photoAlt="Séance d'accompagnement personnalisé avec Sarah Vidal au coin du feu"

@@ -19,7 +19,7 @@ const faqItems = [
   },
   {
     question: "Combien de temps dure la séance et quel est le tarif ?",
-    answer: "La séance de reiki dure 60 minutes, pour 65 €.",
+    answer: "La séance de reiki dure 1h, pour 65 €.",
   },
   {
     question: "Le reiki remplace-t-il un traitement médical ?",
@@ -29,7 +29,7 @@ const faqItems = [
   {
     question: "Reiki ou voyage sonore aux bols tibétains, lequel choisir ?",
     answer:
-      "Le reiki (60 minutes, 65 €) passe par l'imposition des mains, dans le calme. Le voyage sonore (75 minutes, 85 €) passe par les sons et les vibrations des bols tibétains. Si vous hésitez, parlons-en ensemble.",
+      "Le reiki (1h, 65 €) passe par l'imposition des mains, dans le calme. Le voyage sonore (1h15, 85 €) passe par les sons et les vibrations des bols tibétains. Si vous hésitez, parlons-en ensemble.",
   },
   {
     question: "Comment réserver une séance ?",
@@ -41,13 +41,13 @@ const faqItems = [
 
 <ServiceLayout
   title="Soin Reiki à Villaz, près d'Annecy | Couleurs du Bien-être"
-  description="Soin reiki par imposition des mains à Villaz, près d'Annecy, avec Sarah Vidal : retrouvez votre énergie vitale. Séance de 60 min, 65 €."
+  description="Soin reiki par imposition des mains à Villaz, près d'Annecy, avec Sarah Vidal : retrouvez votre énergie vitale. Séance de 1h, 65 €."
   path="/soins-energetiques/reiki"
   name="Soin Reiki"
   serviceDescription="Soin énergétique d'origine japonaise par imposition des mains : le praticien canalise l'énergie universelle pour la rééquilibrer."
   category={CATEGORIES.soins}
   tagline="Retrouvez l'essence de votre énergie vitale"
-  price="La séance dure 60 minutes, 65 €."
+  prices={[{ label: "Séance", duration: "1h", price: "65 €" }]}
   bgImage={bgTexture}
   photo={imgReiki}
   photoAlt="Soin reiki par imposition des mains sur une personne allongée"
@@ -109,7 +109,7 @@ const faqItems = [
           Comment se déroule une séance de reiki ?
         </h2>
         <p class="font-body text-base leading-relaxed text-text">
-          La séance dure 60 minutes. Nous commençons par un temps d'échange sur vos besoins du moment, vos
+          La séance dure 1h. Nous commençons par un temps d'échange sur vos besoins du moment, vos
           tensions ou ce qui vous amène. Vous vous installez ensuite confortablement, et je pose mes mains
           sur ou au-dessus de différentes zones du corps, à votre rythme et dans le respect de votre confort.
         </p>
