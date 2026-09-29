@@ -16,7 +16,9 @@ const { items } = Astro.props;
         {item.question}
         <span class="font-display shrink-0 text-2xl text-primary transition-transform duration-300 group-open:rotate-45">+</span>
       </summary>
-      <p class="font-body mt-3 text-sm leading-relaxed text-text">{item.answer}</p>
+      {/* Réponses rédigées dans le code (jamais saisies par un visiteur) : HTML
+          autorisé pour la mise en forme, ex. <strong>. */}
+      <p class="font-body mt-3 text-sm leading-relaxed text-text" set:html={item.answer} />
     </details>
   ))}
 </div>
