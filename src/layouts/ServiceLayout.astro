@@ -91,7 +91,7 @@ const {
         </div>
         <slot name="detail" />
       </div>
-      <div class="reveal relative z-20 mx-auto w-full max-w-[480px] lg:-ml-8" style="aspect-ratio: 470/338">
+      <div class="reveal relative z-20 mx-auto mt-6 w-full max-w-[480px] lg:mt-0 lg:-ml-8" style="aspect-ratio: 470/338">
         <Image
           src={detailImage}
           alt={detailImageAlt}
@@ -99,7 +99,7 @@ const {
           height={338}
           class="absolute inset-0 z-0 h-full w-full object-cover"
         />
-        <div class="pointer-events-none absolute -top-5 -left-5 z-10 h-full w-full border-[3px] border-primary" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute -top-3 -left-3 z-10 lg:-top-5 lg:-left-5 h-full w-full border-[3px] border-primary" aria-hidden="true"></div>
       </div>
     </div>
   </section>
