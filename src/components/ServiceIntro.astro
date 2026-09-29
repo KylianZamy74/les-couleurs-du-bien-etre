@@ -51,13 +51,11 @@ const Heading = headingLevel;
       <Heading class="font-display text-5xl font-bold text-primary sm:text-6xl">{title}</Heading>
       <p class="font-body text-base font-bold text-heading">{tagline}</p>
       <slot />
-      <dl class="flex w-fit divide-x divide-primary/30 rounded-xl border border-primary/40 bg-bg-cream shadow-[0_6px_16px_-12px_rgba(0,0,0,0.4)]">
+      <dl class="flex flex-wrap gap-3">
         {prices.map(({ label, duration, price }) => (
-          <div class="flex flex-col items-center gap-1 px-6 py-3 text-center">
+          <div class="inline-flex items-baseline gap-2 rounded-full bg-primary/10 px-5 py-2">
             <dt class="font-body text-[11px] font-extrabold tracking-widest text-primary uppercase">{label}</dt>
-            <dd class="font-body text-lg font-extrabold text-heading">
-              {duration} <span class="text-primary" aria-hidden="true">·</span> {price}
-            </dd>
+            <dd class="font-body text-base font-bold text-heading">{duration} · {price}</dd>
           </div>
         ))}
       </dl>
