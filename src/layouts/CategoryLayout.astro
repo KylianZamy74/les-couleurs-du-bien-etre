@@ -1,0 +1,151 @@
+---
+// Gabarit commun des pages catégorie (Massages, Soins énergétiques) : hero,
+// intro, cartes des soins, contenu propre à la page (slot "extra"), FAQ et
+// appel à l'action. Le JSON-LD Service de chaque soin est dérivé des cartes.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import Faq from "../components/Faq.astro";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
+import lotusIcon from "../assets/icons/icone-lotus-couleurs-bien-etre.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  name: string;
+  tagline: string;
+  heroImage: ImageMetadata;
+  heroAlt: string;
+  kicker: string;
+  heading: string;
+  cards: {
+    href: string;
+    title: string;
+    description: string;
+    serviceDescription: string;
+    image: ImageMetadata;
+    alt: string;
+  }[];
+  disclaimer: string;
+  faqItems: { question: string; answer: string }[];
+  cta: { title: string; text: string };
+}
+
+const { title, description, path, name, tagline, heroImage, heroAlt, kicker, heading, cards, disclaimer, faqItems, cta } =
+  Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Accueil", path: "/" },
+      { name, path },
+    ]),
+    ...cards.map((card) =>
+      serviceSchema({ name: card.title, description: card.serviceDescription, path: card.href }),
+    ),
+    faqSchema(faqItems),
+  ]}
+>
+  <!-- Hero -->
+  <section class="relative isolate flex min-h-[420px] items-center overflow-hidden sm:min-h-[480px]">
+    <Image
+      src={heroImage}
+      alt={heroAlt}
+      width={1600}
+      height={900}
+      class="absolute -inset-y-[60px] inset-x-0 -z-10 h-[calc(100%+120px)] w-full object-cover"
+      data-parallax="0.25"
+      data-parallax-max="50"
+      priority
+    />
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <div class="reveal mx-auto flex max-w-2xl flex-col items-center justify-center gap-3 border border-primary/40 bg-[#FFFCF5] px-10 py-5 text-center shadow-[0_12px_40px_-16px_rgba(0,0,0,0.4)] sm:px-20 sm:py-6">
+        <h1 class="font-display text-6xl font-bold text-primary sm:text-7xl">{name}</h1>
+        <Image src={lotusIcon} alt="" width={80} height={80} class="h-20 w-20" />
+        <span class="h-px w-full bg-primary" aria-hidden="true"></span>
+        <p class="font-body text-sm font-semibold tracking-[0.15em] text-btn-text uppercase">{tagline}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20">
+      <div class="reveal mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+        <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">{kicker}</p>
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">{heading}</h2>
+        <slot />
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20">
+      <div class="grid gap-6 sm:grid-cols-2">
+        {cards.map((card, index) => (
+          <a
+            href={card.href}
+            class="reveal group flex flex-col overflow-hidden rounded-md bg-bg-cream p-3 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.65)]"
+            style={index ? `animation-delay: ${index * 80}ms` : undefined}
+          >
+            <div class="overflow-hidden rounded-sm">
+              <Image
+                src={card.image}
+                alt={card.alt}
+                width={640}
+                height={480}
+                class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div class="flex flex-1 flex-col items-center gap-2 px-3 py-6 text-center">
+              <h3 class="font-display text-3xl font-bold text-primary">{card.title}</h3>
+              <p class="font-body text-sm leading-relaxed text-text">{card.description}</p>
+              <span
+                class="font-body mt-1 inline-flex w-fit items-center gap-1 border border-border-soft bg-white px-4 py-2 text-[11px] font-extrabold tracking-wider text-btn-text uppercase transition-colors group-hover:bg-primary group-hover:text-white"
+              >
+                En savoir +
+                <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="font-body mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-heading/60">
+        {disclaimer} —
+        <a href="/conditions-generales-de-vente" class="underline hover:text-primary">conditions générales de vente</a>.
+      </p>
+    </div>
+  </section>
+
+  <slot name="extra" />
+
+  <!-- FAQ -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
+        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
+      </div>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-bg-tan">
+    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">{cta.title}</h2>
+      <p class="font-body text-base leading-relaxed text-heading/90">{cta.text}</p>
+      <a
+        href="/contact"
+        class="font-body rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+      >
+        Me contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout>

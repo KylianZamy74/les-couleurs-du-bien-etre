@@ -1,0 +1,123 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import { CATEGORIES } from "../../data/site";
+
+import bgTexture from "../../assets/images/arbre-lumiere-nature-zen.webp";
+import imgReiki from "../../assets/images/soin-energetique-reiki-imposition-mains.webp";
+import imgPierres from "../../assets/images/cristaux-lithotherapie-lumiere-ombre.webp";
+
+const faqItems = [
+  {
+    question: "Qu'est-ce qu'un soin reiki ?",
+    answer:
+      "Le reiki est un soin énergétique d'origine japonaise, pratiqué par imposition des mains. Reiki signifie « force de vie universelle » : le praticien canalise cette énergie pour vous aider à la rééquilibrer.",
+  },
+  {
+    question: "Comment se déroule une séance de reiki ?",
+    answer:
+      "Nous commençons par un temps d'échange sur vos besoins du moment. Vous vous installez ensuite confortablement, allongé, et je pose mes mains sur ou au-dessus de différentes zones du corps. Il vous suffit de vous laisser aller.",
+  },
+  {
+    question: "Combien de temps dure la séance et quel est le tarif ?",
+    answer: "La séance de reiki dure 60 minutes, pour 65 €.",
+  },
+  {
+    question: "Le reiki remplace-t-il un traitement médical ?",
+    answer:
+      "Non. Le reiki est un soin de bien-être, complémentaire : il ne remplace ni un diagnostic, ni un traitement, ni un avis médical. Si vous suivez un traitement, continuez-le et parlez-en à votre médecin.",
+  },
+  {
+    question: "Reiki ou voyage sonore aux bols tibétains, lequel choisir ?",
+    answer:
+      "Le reiki (60 minutes, 65 €) passe par l'imposition des mains, dans le calme. Le voyage sonore (75 minutes, 85 €) passe par les sons et les vibrations des bols tibétains. Si vous hésitez, parlons-en ensemble.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer:
+      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+  },
+];
+---
+
+<ServiceLayout
+  title="Soin Reiki à Villaz, près d'Annecy | Couleurs du Bien-être"
+  description="Soin reiki par imposition des mains à Villaz, près d'Annecy, avec Sarah Vidal : retrouvez votre énergie vitale. Séance de 60 min, 65 €."
+  path="/soins-energetiques/reiki"
+  name="Soin Reiki"
+  serviceDescription="Soin énergétique d'origine japonaise par imposition des mains : le praticien canalise l'énergie universelle pour la rééquilibrer."
+  category={CATEGORIES.soins}
+  tagline="Retrouvez l'essence de votre énergie vitale"
+  price="La séance dure 60 minutes, 65 €."
+  bgImage={bgTexture}
+  photo={imgReiki}
+  photoAlt="Soin reiki par imposition des mains sur une personne allongée"
+  detailTitle="Le Reiki"
+  detailImage={imgPierres}
+  detailImageAlt="Ensemble de pierres semi-précieuses posées dans un rayon de lumière"
+  disclaimer="Ce soin est à visée de bien-être et de relaxation, non thérapeutique, et ne remplace pas un avis médical"
+  faqItems={faqItems}
+  related={{ label: "le voyage sonore aux bols tibétains", href: "/soins-energetiques/bols-tibetain" }}
+>
+  <p class="font-body text-base leading-relaxed text-text">
+    Reiki est un mot japonais qui signifie force de vie universelle. Le reiki est une méthode de soins
+    naturels qui renforce la capacité du corps à se guérir lui-même. Le praticien canalise cette énergie
+    pour la rééquilibrer.
+  </p>
+  <p class="font-body text-base leading-relaxed text-text">
+    Il est connu pour ses bienfaits contre le stress, les raideurs dans le corps, la fatigue, un système
+    immunitaire affaibli ou encore les troubles du sommeil...
+  </p>
+
+  <Fragment slot="detail">
+    <p class="font-body text-base leading-relaxed text-text">
+      En japonais, Rei veut dire universel et inclut la matière, l'âme et l'esprit. Ki renvoie à l'énergie
+      vitale qui circule en nous. Très utilisé par les médecines orientales tel que la Médecine
+      traditionnelle chinoise et l'ayurveda.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Le Reiki est donc la mise ou la remise en contact de « l'énergie universelle » et de notre propre
+      « force vitale » dans le but d'éveiller un processus dynamique de guérison.
+    </p>
+  </Fragment>
+
+  <Fragment slot="extra">
+    <!-- Pour qui -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+          Le soin reiki, en bref
+        </p>
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Pour qui est fait le soin reiki ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          Le reiki s'adresse à toute personne qui ressent le besoin de se poser et de retrouver son
+          équilibre. Vous vous sentez fatigué, tendu, ou simplement déconnecté de vous-même ? Le soin vous
+          offre un vrai moment de calme, pour relâcher ce qui pèse et vous reconnecter à votre énergie.
+        </p>
+        <p class="font-body mt-5 text-base leading-relaxed text-text">
+          Il n'y a rien à préparer, ni besoin de connaître le reiki pour en profiter : le soin se reçoit
+          simplement, allongé, en vous laissant aller.
+        </p>
+      </div>
+    </section>
+
+    <!-- Déroulé -->
+    <section class="bg-white">
+      <div class="reveal mx-auto max-w-3xl border-t border-border-soft px-4 pt-14 pb-16 text-center sm:px-6">
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Comment se déroule une séance de reiki ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          La séance dure 60 minutes. Nous commençons par un temps d'échange sur vos besoins du moment, vos
+          tensions ou ce qui vous amène. Vous vous installez ensuite confortablement, et je pose mes mains
+          sur ou au-dessus de différentes zones du corps, à votre rythme et dans le respect de votre confort.
+        </p>
+        <p class="font-body mt-5 text-base leading-relaxed text-text">
+          Les séances ont lieu à Villaz, en Haute-Savoie, à quelques minutes d'Annecy, dans un espace calme
+          pensé pour que vous puissiez vous poser dès votre arrivée.
+        </p>
+      </div>
+    </section>
+  </Fragment>
+</ServiceLayout>

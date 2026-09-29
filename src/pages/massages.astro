@@ -1,11 +1,7 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Faq from "../components/Faq.astro";
-import { Image } from "astro:assets";
-import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
+import CategoryLayout from "../layouts/CategoryLayout.astro";
 
 import heroMassages from "../assets/images/huiles-essentielles-cristaux-preparation-massage.webp";
-import lotusIcon from "../assets/icons/icone-lotus-couleurs-bien-etre.svg";
 import imgMassageIntuitif from "../assets/images/huile-essentielle-application-mains.webp";
 import imgPierresChaudes from "../assets/images/massage-pierres-chaudes-application-mains.webp";
 
@@ -38,177 +34,72 @@ const faqItems = [
 ];
 ---
 
-<BaseLayout
+<CategoryLayout
   title="Massages | Les Couleurs du Bien-être | Villaz"
   description="Massages bien-être à Villaz (Haute-Savoie) par Sarah Vidal : massage intuitif aux huiles essentielles et massage aux pierres chaudes."
   path="/massages"
-  jsonLd={[
-    breadcrumbSchema([
-      { name: "Accueil", path: "/" },
-      { name: "Massages", path: "/massages" },
-    ]),
-    serviceSchema({
-      name: "Massage intuitif",
-      description:
+  name="Massages"
+  tagline="Offrez-vous un moment de reconnexion avec votre corps"
+  heroImage={heroMassages}
+  heroAlt="Huiles essentielles et cristaux préparés pour un massage"
+  kicker="Deux façons de prendre soin de vous"
+  heading="Des massages sur mesure, à Villaz"
+  cards={[
+    {
+      href: "/massages/massage-intuitif",
+      title: "Massage Intuitif",
+      description: "Massage sur mesure en fonction de vos besoins, aux huiles essentielles.",
+      serviceDescription:
         "Massage totalement sur mesure, adapté à l'état physique de la personne, ses ressentis et ses besoins du moment, aux huiles essentielles.",
-      path: "/massages/massage-intuitif",
-    }),
-    serviceSchema({
-      name: "Massage aux pierres chaudes",
-      description:
+      image: imgMassageIntuitif,
+      alt: "Application d'une huile essentielle sur les mains",
+    },
+    {
+      href: "/massages/massage-pierres-chaudes",
+      title: "Massage aux pierres chaudes",
+      description: "Massage enveloppant avec un profond relâchement musculaire.",
+      serviceDescription:
         "Massage enveloppant avec les pierres chaudes, pour un relâchement musculaire profond et une amélioration de la circulation sanguine.",
-      path: "/massages/massage-pierres-chaudes",
-    }),
-    faqSchema(faqItems),
+      image: imgPierresChaudes,
+      alt: "Application de pierres chaudes lors d'un massage",
+    },
   ]}
+  disclaimer="Ces massages sont à visée de détente, de bien-être et de relaxation, non thérapeutique"
+  faqItems={faqItems}
+  cta={{
+    title: "Envie de réserver un massage ?",
+    text: "Écrivez-moi pour convenir ensemble du massage et du créneau qui vous conviennent le mieux.",
+  }}
 >
-  <!-- Hero -->
-  <section class="relative isolate flex min-h-[420px] items-center overflow-hidden sm:min-h-[480px]">
-    <Image
-      src={heroMassages}
-      alt="Huiles essentielles et cristaux préparés pour un massage"
-      width={1600}
-      height={900}
-      class="absolute -inset-y-[60px] inset-x-0 -z-10 h-[calc(100%+120px)] w-full object-cover"
-      data-parallax="0.25"
-      data-parallax-max="50"
-      priority
-    />
-    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
-      <div class="reveal mx-auto flex max-w-2xl flex-col items-center justify-center gap-3 border border-primary/40 bg-[#FFFCF5] px-10 py-5 text-center shadow-[0_12px_40px_-16px_rgba(0,0,0,0.4)] sm:px-20 sm:py-6">
-        <h1 class="font-display text-6xl font-bold text-primary sm:text-7xl">Massages</h1>
-        <Image src={lotusIcon} alt="" width={80} height={80} class="h-20 w-20" />
-        <span class="h-px w-full bg-primary" aria-hidden="true"></span>
-        <p class="font-body text-sm font-semibold tracking-[0.15em] text-btn-text uppercase">
-          Offrez-vous un moment de reconnexion avec votre corps
-        </p>
-      </div>
-    </div>
-  </section>
+  <p class="font-body text-base leading-relaxed text-text">
+    Le massage intuitif et le massage aux pierres chaudes sont deux massages à visée de détente, de
+    bien-être et de relaxation, pensés pour s'adapter à votre état physique, à vos ressentis et à vos
+    besoins du moment. Chaque séance se déroule dans un cadre calme et bienveillant à Villaz, à
+    quelques minutes d'Annecy, pour vous offrir un vrai moment de reconnexion avec votre corps.
+  </p>
 
-  <!-- Intro -->
-  <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20">
-      <div class="reveal mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+  <Fragment slot="extra">
+    <!-- Qu'est-ce qu'un massage bien-être -->
+    <section class="bg-bg-cream">
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
         <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
-          Deux façons de prendre soin de vous
+          Le massage bien-être, en bref
         </p>
         <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
-          Des massages sur mesure, à Villaz
+          Qu'est-ce qu'un massage bien-être ?
         </h2>
         <p class="font-body text-base leading-relaxed text-text">
-          Le massage intuitif et le massage aux pierres chaudes sont deux massages à visée de détente, de
-          bien-être et de relaxation, pensés pour s'adapter à votre état physique, à vos ressentis et à vos
-          besoins du moment. Chaque séance se déroule dans un cadre calme et bienveillant à Villaz, à
-          quelques minutes d'Annecy, pour vous offrir un vrai moment de reconnexion avec votre corps.
+          Un massage bien-être, c'est un temps rien que pour vous : un accompagnement par le toucher, pensé
+          pour la détente, la relaxation et le lâcher-prise, et non pour traiter une pathologie. Que ce soit
+          avec les huiles essentielles du massage intuitif ou la chaleur des pierres volcaniques, chaque
+          geste est adapté à votre corps et à votre rythme du moment.
+        </p>
+        <p class="font-body mt-4 text-base leading-relaxed text-text">
+          Les bienfaits les plus souvent ressentis : un relâchement des tensions musculaires, un vrai moment
+          de calme pour l'esprit, et cette sensation simple de se sentir à nouveau en lien avec son corps.
         </p>
       </div>
-    </div>
+    </section>
 
-    <!-- Cards -->
-    <div class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20">
-      <div class="grid gap-6 sm:grid-cols-2">
-        <a href="/massages/massage-intuitif" class="reveal group flex flex-col overflow-hidden rounded-md bg-bg-cream p-3 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.65)]">
-          <div class="overflow-hidden rounded-sm">
-            <Image
-              src={imgMassageIntuitif}
-              alt="Application d'une huile essentielle sur les mains"
-              width={640}
-              height={480}
-              class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div class="flex flex-1 flex-col items-center gap-2 px-3 py-6 text-center">
-            <h3 class="font-display text-3xl font-bold text-primary">Massage Intuitif</h3>
-            <p class="font-body text-sm leading-relaxed text-text">
-              Massage sur mesure en fonction de vos besoins, aux huiles essentielles.
-            </p>
-            <span
-              class="font-body mt-1 inline-flex w-fit items-center gap-1 border border-border-soft bg-white px-4 py-2 text-[11px] font-extrabold tracking-wider text-btn-text uppercase transition-colors group-hover:bg-primary group-hover:text-white"
-            >
-              En savoir +
-              <span aria-hidden="true">→</span>
-            </span>
-          </div>
-        </a>
-        <a href="/massages/massage-pierres-chaudes" class="reveal group flex flex-col overflow-hidden rounded-md bg-bg-cream p-3 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.65)]" style="animation-delay: 80ms">
-          <div class="overflow-hidden rounded-sm">
-            <Image
-              src={imgPierresChaudes}
-              alt="Application de pierres chaudes lors d'un massage"
-              width={640}
-              height={480}
-              class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div class="flex flex-1 flex-col items-center gap-2 px-3 py-6 text-center">
-            <h3 class="font-display text-3xl font-bold text-primary">Massage aux pierres chaudes</h3>
-            <p class="font-body text-sm leading-relaxed text-text">
-              Massage enveloppant avec un profond relâchement musculaire.
-            </p>
-            <span
-              class="font-body mt-1 inline-flex w-fit items-center gap-1 border border-border-soft bg-white px-4 py-2 text-[11px] font-extrabold tracking-wider text-btn-text uppercase transition-colors group-hover:bg-primary group-hover:text-white"
-            >
-              En savoir +
-              <span aria-hidden="true">→</span>
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <p class="font-body mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-heading/60">
-        Ces massages sont à visée de détente, de bien-être et de relaxation, non thérapeutique —
-        <a href="/conditions-generales-de-vente" class="underline hover:text-primary">conditions générales de vente</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- Qu'est-ce qu'un massage bien-être -->
-  <section class="bg-bg-cream">
-    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
-      <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
-        Le massage bien-être, en bref
-      </p>
-      <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
-        Qu'est-ce qu'un massage bien-être ?
-      </h2>
-      <p class="font-body text-base leading-relaxed text-text">
-        Un massage bien-être, c'est un temps rien que pour vous : un accompagnement par le toucher, pensé
-        pour la détente, la relaxation et le lâcher-prise, et non pour traiter une pathologie. Que ce soit
-        avec les huiles essentielles du massage intuitif ou la chaleur des pierres volcaniques, chaque
-        geste est adapté à votre corps et à votre rythme du moment.
-      </p>
-      <p class="font-body mt-4 text-base leading-relaxed text-text">
-        Les bienfaits les plus souvent ressentis : un relâchement des tensions musculaires, un vrai moment
-        de calme pour l'esprit, et cette sensation simple de se sentir à nouveau en lien avec son corps.
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
-        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
-        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
-      </div>
-      <Faq items={faqItems} />
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-bg-tan">
-    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
-      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Envie de réserver un massage ?</h2>
-      <p class="font-body text-base leading-relaxed text-heading/90">
-        Écrivez-moi pour convenir ensemble du massage et du créneau qui vous conviennent le mieux.
-      </p>
-      <a
-        href="/contact"
-        class="font-body rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
-      >
-        Me contacter
-      </a>
-    </div>
-  </section>
-</BaseLayout>
+  </Fragment>
+</CategoryLayout>
