@@ -1,0 +1,20 @@
+---
+import Faq from "./Faq.astro";
+
+interface Props {
+  items: { question: string; answer: string }[];
+  bg?: "bg-white" | "bg-bg-cream";
+}
+
+const { items, bg = "bg-bg-cream" } = Astro.props;
+---
+
+<section class={bg}>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+      <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
+    </div>
+    <Faq items={items} />
+  </div>
+</section>

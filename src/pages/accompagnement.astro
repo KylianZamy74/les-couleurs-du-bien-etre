@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import ServiceIntro from "../components/ServiceIntro.astro";
+import FaqSection from "../components/FaqSection.astro";
+import { Image } from "astro:assets";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
+
+import heroImage from "../assets/images/meditation-main-mudra-serenite.webp";
+import bgTexture from "../assets/images/livre-ouvert-pages-lecture.webp";
+import imgSeance from "../assets/images/sarah-vidal-seance-accompagnement.webp";
+import iconMeditation from "../assets/icons/icone-silhouette-meditation-lotus.svg";
+import iconHuile from "../assets/icons/icone-flacon-huile-essentielle.svg";
+import iconDecodage from "../assets/icons/icone-tete-coeur-bien-etre-mental.svg";
+import iconHarmonisation from "../assets/icons/icone-silhouette-yoga-posture-arbre.svg";
+import iconReiki from "../assets/icons/icone-symbole-reiki-cho-ku-rei.svg";
+import iconReprogrammation from "../assets/icons/icone-tete-cerveau-bien-etre-mental.svg";
+import iconBols from "../assets/icons/icone-bol-tibetain.svg";
+import iconPosture from "../assets/icons/icone-colonne-vertebrale-posture.svg";
+
+const path = "/accompagnement";
+
+const techniques = [
+  { label: "Méditation", icon: iconMeditation },
+  { label: "Massage aux huiles essentielles", icon: iconHuile, href: "/massages/massage-intuitif" },
+  { label: "Décodage", icon: iconDecodage },
+  { label: "Harmonisation corporelle", icon: iconHarmonisation },
+  { label: "Reiki", icon: iconReiki, href: "/soins-energetiques/reiki" },
+  { label: "Reprogrammation positive", icon: iconReprogrammation },
+  { label: "Bols tibétains", icon: iconBols, href: "/soins-energetiques/bols-tibetain" },
+  { label: "Conscientisation posturale", icon: iconPosture },
+];
+
+const faqItems = [
+  {
+    question: "Qu'est-ce que l'accompagnement personnalisé ?",
+    answer:
+      "C'est un ensemble d'exercices et de techniques qui vont vous permettre de trouver les clés de votre épanouissement personnel. Au travers de nos échanges, nous construisons ensemble le suivi qui vous correspond, pour retrouver votre équilibre intérieur.",
+  },
+  {
+    question: "Comment se déroule le bilan ?",
+    answer:
+      "Le bilan dure 1h45, pour 90 €. C'est un temps d'échange pour faire le point sur ce que vous vivez, ce qui vous amène et ce que vous souhaitez changer. À partir de là, nous construisons ensemble votre suivi.",
+  },
+  {
+    question: "Combien coûte une séance d'accompagnement ?",
+    answer: "Le bilan dure 1h45, pour 90 €. Chaque séance de suivi dure ensuite 1h30, pour 85 €.",
+  },
+  {
+    question: "Combien de séances faut-il prévoir ?",
+    answer:
+      "Il n'y a pas de nombre fixé à l'avance : le rythme et la durée du suivi se décident ensemble, selon vos besoins et votre évolution.",
+  },
+  {
+    question: "Quelles techniques sont utilisées ?",
+    answer:
+      "Méditation, massage aux huiles essentielles, décodage, harmonisation corporelle, reiki, reprogrammation positive, bols tibétains et conscientisation posturale. Je choisis avec vous celles qui vous correspondent.",
+  },
+  {
+    question: "L'accompagnement remplace-t-il un suivi médical ou psychologique ?",
+    answer:
+      "Non. C'est un accompagnement de bien-être et de développement personnel : il ne remplace ni un diagnostic, ni un traitement, ni un suivi médical ou psychologique.",
+  },
+  {
+    question: "Comment prendre rendez-vous ?",
+    answer:
+      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau pour votre bilan.",
+  },
+];
+---
+
+<BaseLayout
+  title="Accompagnement personnalisé à Villaz | Sarah Vidal"
+  description="Accompagnement personnalisé à Villaz, près d'Annecy : trouvez les clés de votre épanouissement avec Sarah Vidal. Bilan 1h45, séance 1h30."
+  path={path}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Accueil", path: "/" },
+      { name: "Accompagnement", path },
+    ]),
+    serviceSchema({
+      name: "Accompagnement personnalisé",
+      description:
+        "Ensemble d'exercices et de techniques pour trouver les clés de son épanouissement personnel et retrouver son équilibre intérieur.",
+      path,
+    }),
+    faqSchema(faqItems),
+  ]}
+>
+  <PageHero
+    title="Accompagnement personnalisé"
+    tagline="Vous êtes le changement"
+    image={heroImage}
+    alt="Main posée en position de méditation dans une ambiance apaisante"
+  />
+
+  <ServiceIntro
+    title="Accompagnement"
+    headingLevel="h2"
+    tagline="Les solutions sont en vous."
+    prices={["Le bilan dure 1h45, 90 €.", "Une séance dure 1h30, 85 €."]}
+    bgImage={bgTexture}
+    photo={imgSeance}
+    photoAlt="Séance d'accompagnement personnalisé avec Sarah Vidal au coin du feu"
+  >
+    <p class="font-body text-base leading-relaxed text-text">
+      Ensemble d'exercices et de techniques qui vont vous permettre de trouver les clés de votre
+      épanouissement personnel.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Au travers de nos échanges, nous allons construire ensemble le suivi qui vous correspond afin de
+      retrouver votre équilibre intérieur.
+    </p>
+  </ServiceIntro>
+
+  <!-- Techniques -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <h2 class="reveal font-display mb-10 text-center text-4xl font-bold text-primary sm:text-5xl">
+        Techniques utilisées
+      </h2>
+      <ul class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-8">
+        {techniques.map((technique) => {
+          const Tag = technique.href ? "a" : "div";
+          return (
+            <li class="reveal">
+              <Tag href={technique.href} class="group flex flex-col items-center gap-3 text-center">
+                <span class="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-sm">
+                  <Image src={technique.icon} alt="" width={56} height={56} class="h-14 w-14" />
+                </span>
+                <span class:list={["font-display text-xl leading-tight font-bold text-primary", technique.href && "group-hover:underline"]}>
+                  {technique.label}
+                </span>
+              </Tag>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+      <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+        L'accompagnement, en bref
+      </p>
+      <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+        Pour qui est fait l'accompagnement personnalisé&nbsp;?
+      </h2>
+      <p class="font-body text-base leading-relaxed text-text">
+        L'accompagnement s'adresse à toute personne qui traverse une période de changement, de doute ou de
+        fatigue, et qui a envie d'avancer. Vous sentez que quelque chose doit bouger, sans savoir par où
+        commencer ? Nous prenons le temps d'en parler, et de trouver ensemble votre chemin.
+      </p>
+      <p class="font-body mt-5 text-base leading-relaxed text-text">
+        Il n'y a pas de programme tout fait : chaque suivi est construit pour vous, à votre rythme, avec les
+        techniques qui vous parlent. Les solutions sont en vous, je suis là pour vous aider à les retrouver.
+      </p>
+    </div>
+  </section>
+
+  <!-- Déroulé -->
+  <section class="bg-white">
+    <div class="reveal mx-auto max-w-3xl border-t border-border-soft px-4 pt-14 pb-16 text-center sm:px-6">
+      <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+        Comment se déroule l'accompagnement&nbsp;?
+      </h2>
+      <p class="font-body text-base leading-relaxed text-text">
+        Tout commence par un bilan de 1h45. Nous faisons le point ensemble sur ce que vous vivez et sur ce
+        que vous souhaitez changer. À partir de ce bilan, nous construisons votre suivi : des séances de
+        1h30, qui mêlent échanges, exercices et techniques choisies pour vous.
+      </p>
+      <p class="font-body mt-5 text-base leading-relaxed text-text">
+        Les séances ont lieu à Villaz, en Haute-Savoie, à quelques minutes d'Annecy, dans un espace calme et
+        chaleureux, pensé pour que vous puissiez vous poser dès votre arrivée.
+      </p>
+    </div>
+  </section>
+
+  <p class="font-body mx-auto max-w-3xl px-4 pb-12 text-center text-xs leading-relaxed text-heading/60 sm:px-6">
+    Cet accompagnement est à visée de bien-être et de développement personnel, non thérapeutique, et ne
+    remplace pas un suivi médical ou psychologique —
+    <a href="/conditions-generales-de-vente" class="underline hover:text-primary">conditions générales de vente</a>.
+  </p>
+
+  <FaqSection items={faqItems} />
+
+  <!-- CTA -->
+  <section class="bg-bg-tan">
+    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Envie de commencer votre accompagnement&nbsp;?</h2>
+      <p class="font-body text-base leading-relaxed text-heading/90">
+        Écrivez-moi pour convenir ensemble d'un créneau pour votre bilan. Vous pouvez aussi découvrir
+        <a href="/massages" class="font-bold text-primary hover:underline">les massages</a> ou
+        <a href="/soins-energetiques" class="font-bold text-primary hover:underline">les soins énergétiques</a>.
+      </p>
+      <a
+        href="/contact"
+        class="font-body rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
+      >
+        Me contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -6,7 +6,8 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
-import Faq from "../components/Faq.astro";
+import FaqSection from "../components/FaqSection.astro";
+import ServiceIntro from "../components/ServiceIntro.astro";
 import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
 import lotusIcon from "../assets/icons/icone-lotus-couleurs-bien-etre.svg";
 
@@ -74,47 +75,9 @@ const {
     </div>
   </div>
 
-  <!-- Main -->
-  <section class="bg-white">
-    <div class="mx-auto grid max-w-6xl gap-16 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,440px)_1fr] lg:items-center lg:gap-24">
-      <div class="reveal relative mx-auto w-full max-w-md" style="aspect-ratio: 420 / 399;">
-        <Image
-          src={bgImage}
-          alt=""
-          width={420}
-          height={399}
-          class="absolute bottom-0 left-0 h-full w-full object-cover"
-          aria-hidden="true"
-          priority
-        />
-        <Image
-          src={photo}
-          alt={photoAlt}
-          width={340}
-          height={230}
-          class="absolute top-[10%] -right-[14%] z-0 h-[52%] w-[76%] object-cover"
-          priority
-        />
-        <div
-          class="pointer-events-none absolute top-[10%] -right-[14%] z-10 h-[52%] w-[76%] -translate-x-3 -translate-y-3 border-[3px] border-primary"
-          aria-hidden="true"
-        >
-        </div>
-      </div>
-      <div class="reveal flex flex-col gap-5">
-        <h1 class="font-display text-5xl font-bold text-primary sm:text-6xl">{name}</h1>
-        <p class="font-body text-base font-bold text-heading">{tagline}</p>
-        <slot />
-        <p class="font-body text-base font-bold text-heading">{price}</p>
-        <a
-          href="/contact"
-          class="font-body inline-flex w-fit items-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
-        >
-          Me contacter
-        </a>
-      </div>
-    </div>
-  </section>
+  <ServiceIntro title={name} tagline={tagline} prices={[price]} bgImage={bgImage} photo={photo} photoAlt={photoAlt}>
+    <slot />
+  </ServiceIntro>
 
   <!-- Détail -->
   <section class="bg-bg-cream">
@@ -146,16 +109,7 @@ const {
     <a href="/conditions-generales-de-vente" class="underline hover:text-primary">conditions générales de vente</a>.
   </p>
 
-  <!-- FAQ -->
-  <section class="bg-bg-cream">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
-        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
-        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
-      </div>
-      <Faq items={faqItems} />
-    </div>
-  </section>
+  <FaqSection items={faqItems} bg="bg-bg-cream" />
 
   <!-- Maillage interne -->
   <section class="bg-white">

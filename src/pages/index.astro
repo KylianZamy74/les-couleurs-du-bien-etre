@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Reviews from "../components/Reviews.astro";
-import Faq from "../components/Faq.astro";
+import FaqSection from "../components/FaqSection.astro";
 import { Image } from "astro:assets";
 import { localBusinessSchema, faqSchema } from "../data/schema";
 
@@ -226,16 +226,7 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="bg-bg-cream">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
-        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
-        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
-      </div>
-      <Faq items={faqItems} />
-    </div>
-  </section>
+  <FaqSection items={faqItems} bg="bg-bg-cream" />
 
   <!-- CTA -->
   <section class="bg-bg-tan">
