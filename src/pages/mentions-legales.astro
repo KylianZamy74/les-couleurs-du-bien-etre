@@ -1,29 +1,68 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { SITE } from "../data/site";
+import { SITE, LEGAL } from "../data/site";
 ---
 
 <BaseLayout
   title="Mentions légales | Les Couleurs du Bien-être"
-  description="Mentions légales du site Les Couleurs du Bien-être, Sarah Vidal, praticienne en soins bien-être à Villaz."
+  description="Mentions légales du site Les Couleurs du Bien-être : éditeur Sarah Vidal, praticienne en soins bien-être à Villaz, près d'Annecy."
   path="/mentions-legales"
 >
   <section class="bg-white">
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <h1 class="font-display mb-8 text-4xl font-bold text-heading sm:text-5xl">Mentions légales</h1>
-      <div class="font-body flex flex-col gap-4 text-sm leading-relaxed text-text">
-        <p>
-          <!-- TODO: SIRET et forme juridique à faire confirmer par Sarah avant mise
-          en ligne (non inventés) — adresse/téléphone/e-mail repris de sa fiche
-          Google Business publique. -->
-          Éditeur du site : Sarah Vidal, Les Couleurs du Bien-être, praticienne en soins bien-être.
-        </p>
-        <p>
-          Adresse : {SITE.streetAddress}, {SITE.postalCode} {SITE.locality}<br />
-          Téléphone : {SITE.phone}<br />
-          E-mail : {SITE.email}
-        </p>
-        <p>Hébergement : Cloudflare, Inc.</p>
+      <div class="font-body flex flex-col gap-8 text-sm leading-relaxed text-text">
+        <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Éditeur du site</h2>
+          <p>
+            {LEGAL.owner}, {LEGAL.status.toLowerCase()}, nom commercial « {SITE.name} »<br />
+            {LEGAL.address}<br />
+            SIREN : {LEGAL.siren}<br />
+            SIRET : {LEGAL.siret}<br />
+            {LEGAL.vat}<br />
+            Téléphone : <a href={`tel:${SITE.phoneIntl}`} class="font-semibold hover:text-primary">{SITE.phone}</a><br />
+            E-mail : <a href={`mailto:${SITE.email}`} class="font-semibold hover:text-primary">{SITE.email}</a>
+          </p>
+          <p class="mt-2">Directrice de la publication : {LEGAL.owner}.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Réalisation du site</h2>
+          <p>Site conçu et réalisé par {LEGAL.webdesigner}.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Hébergement</h2>
+          <p>
+            {LEGAL.host.name}<br />
+            {LEGAL.host.address}<br />
+            <a href={LEGAL.host.url} class="font-semibold hover:text-primary" rel="noopener">{LEGAL.host.url.replace("https://", "")}</a>
+          </p>
+          <p class="mt-2">Nom de domaine enregistré auprès de {LEGAL.registrar.name}, {LEGAL.registrar.address}.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Propriété intellectuelle</h2>
+          <p>
+            Les textes, le logo et les photographies de Sarah Vidal présents sur ce site sont sa propriété.
+            Toute reproduction, même partielle, est interdite sans son accord écrit.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Données personnelles et cookies</h2>
+          <p>
+            Ce site ne comporte aucun formulaire et ne dépose aucun cookie. Les informations que vous
+            transmettez par téléphone ou par e-mail (nom, prénom, coordonnées) servent uniquement à organiser
+            vos rendez-vous et ne sont jamais cédées à des tiers.
+          </p>
+          <p class="mt-2">
+            Conformément au Règlement général sur la protection des données (RGPD), vous pouvez demander
+            l'accès, la rectification ou la suppression de vos données en écrivant à{" "}
+            <a href={`mailto:${SITE.email}`} class="font-semibold hover:text-primary">{SITE.email}</a>. Vous
+            pouvez également adresser une réclamation à la CNIL (cnil.fr).
+          </p>
+        </div>
       </div>
     </div>
   </section>
