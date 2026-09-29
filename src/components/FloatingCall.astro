@@ -1,18 +1,30 @@
 ---
-// Bouton flottant « Appeler » (mobile et tablette) : apparaît en fondu une
-// fois le haut de page passé, masqué quand le menu burger est ouvert.
+// Bouton flottant de contact : appel direct (tel:) sur mobile et tablette,
+// page Contact en desktop (un tel: y ouvre rarement le bon outil). Apparaît
+// en fondu une fois le haut de page passé, masqué quand le menu est ouvert.
 import { SITE } from "../data/site";
+
+const variants = [
+  { href: `tel:${SITE.phoneIntl}`, label: `Appeler Sarah au ${SITE.phone}`, class: "right-4 flex active:scale-95 lg:hidden" },
+  { href: "/contact", label: "Contacter Sarah", class: "right-6 hidden hover:scale-105 lg:flex" },
+];
 ---
 
-<a
-  href={`tel:${SITE.phoneIntl}`}
-  class="floating-call fixed right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-[0_10px_24px_-8px_rgb(116_68_49/0.6)] transition-transform active:scale-95 lg:hidden"
-  aria-label={`Appeler Sarah au ${SITE.phone}`}
->
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true">
-    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path>
-  </svg>
-</a>
+{variants.map((variant) => (
+  <a
+    href={variant.href}
+    class:list={[
+      "floating-call fixed z-40 h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-[0_10px_24px_-8px_rgb(116_68_49/0.6)] transition-transform",
+      variant.class,
+    ]}
+    aria-label={variant.label}
+    title={variant.label}
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true">
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path>
+    </svg>
+  </a>
+))}
 
 <style>
   .floating-call {
@@ -39,10 +51,8 @@ import { SITE } from "../data/site";
 
 <script>
   // classList.toggle est trivial : pas besoin de throttle par rAF.
-  const button = document.querySelector<HTMLElement>(".floating-call");
-  if (button) {
-    const update = () => button.classList.toggle("is-shown", window.scrollY > 320);
-    window.addEventListener("scroll", update, { passive: true });
-    update();
-  }
+  const buttons = document.querySelectorAll<HTMLElement>(".floating-call");
+  const update = () => buttons.forEach((button) => button.classList.toggle("is-shown", window.scrollY > 320));
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 </script>
