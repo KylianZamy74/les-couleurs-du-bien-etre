@@ -6,25 +6,50 @@ import { SITE } from "../data/site";
 <section class="bg-bg-tan/30">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
     <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
-      <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Elles en parlent</p>
-      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Ce que disent mes clientes</h2>
+      <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Ils et elles en parlent</p>
+      <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Ce que disent mes clients</h2>
       <p class="font-body text-sm font-semibold text-heading/70">
         {reviewsSummary.ratingValue.toFixed(1).replace(".", ",")} / 5 · {reviewsSummary.reviewCount} avis {reviewsSummary.source}
       </p>
     </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {reviews.map((review, index) => (
-        <figure
-          class="reveal flex flex-col gap-4 rounded-2xl bg-card-bg p-6 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]"
-          style={`--reveal-delay: ${index * 70}ms`}
-        >
-          <div class="font-display text-2xl leading-none text-primary" aria-hidden="true">{"★".repeat(review.rating)}</div>
-          <blockquote class="font-body flex-1 text-sm leading-relaxed text-text">
-            « {review.text} »
-          </blockquote>
-          <figcaption class="font-body text-sm font-bold text-heading">{review.author}</figcaption>
-        </figure>
-      ))}
+    <div class="reveal relative" role="region" aria-roledescription="carrousel" aria-label="Avis de clients">
+      <ul
+        id="avis-carrousel"
+        class="reviews-track -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto scroll-smooth px-4 pb-4 sm:mx-0 sm:scroll-px-0 sm:px-0"
+      >
+        {reviews.map((review, index) => (
+          <li
+            class="w-[85%] shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+            role="group"
+            aria-roledescription="avis"
+            aria-label={`Avis ${index + 1} sur ${reviews.length}`}
+          >
+            <figure class="flex h-full flex-col gap-4 rounded-2xl bg-card-bg p-6 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]">
+              <div class="font-display text-2xl leading-none text-primary" aria-hidden="true">{"★".repeat(review.rating)}</div>
+              <blockquote class="font-body flex-1 text-sm leading-relaxed whitespace-pre-line text-text">
+                « {review.text} »
+              </blockquote>
+              <figcaption class="font-body text-sm font-bold text-heading">{review.author}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-6 flex justify-center gap-3">
+        {[
+          { dir: -1, label: "Avis précédent", icon: "←" },
+          { dir: 1, label: "Avis suivant", icon: "→" },
+        ].map((button) => (
+          <button
+            type="button"
+            class="reviews-nav flex h-11 w-11 items-center justify-center rounded-full border border-primary/30 bg-white text-lg text-primary shadow-sm transition-colors hover:bg-primary hover:text-white disabled:cursor-default disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-primary"
+            data-dir={button.dir}
+            aria-controls="avis-carrousel"
+            aria-label={button.label}
+          >
+            <span aria-hidden="true">{button.icon}</span>
+          </button>
+        ))}
+      </div>
     </div>
     <div class="reveal mt-10 flex justify-center sm:mt-14">
       <a
@@ -39,3 +64,35 @@ import { SITE } from "../data/site";
     </div>
   </div>
 </section>
+
+<style>
+  /* Barre de défilement masquée : on navigue au doigt ou avec les flèches. */
+  .reviews-track {
+    scrollbar-width: none;
+  }
+  .reviews-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  // Flèches du carrousel : défilent d'une carte, désactivées aux extrémités.
+  const track = document.querySelector<HTMLElement>(".reviews-track");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".reviews-nav");
+  if (track) {
+    const step = () => (track.firstElementChild as HTMLElement | null)?.offsetWidth ?? track.clientWidth;
+    const update = () => {
+      buttons.forEach((button) => {
+        const dir = Number(button.dataset.dir);
+        const max = track.scrollWidth - track.clientWidth - 1;
+        button.disabled = dir < 0 ? track.scrollLeft <= 0 : track.scrollLeft >= max;
+      });
+    };
+    buttons.forEach((button) =>
+      button.addEventListener("click", () => track.scrollBy({ left: Number(button.dataset.dir) * (step() + 24) })),
+    );
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+</script>
