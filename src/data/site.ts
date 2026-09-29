@@ -22,6 +22,24 @@ export const SITE = {
 // formulaire de contact : rendez-vous par téléphone ou e-mail).
 export const BOOKING_ANSWER = `Le plus simple est de m'appeler au ${SITE.phone} ou de m'écrire à ${SITE.email} : nous convenons ensemble d'un créneau adapté à vos disponibilités.`;
 
+// Données légales (mentions légales, CGV). Source : registre national des
+// entreprises (recherche-entreprises.api.gouv.fr), vérifié le 2026-09-29.
+export const LEGAL = {
+  owner: "Sarah Vidal",
+  status: "Entrepreneur individuel",
+  siren: "843 310 434",
+  siret: "843 310 434 00017",
+  address: "56 route des Fontaines, 74370 Villaz",
+  vat: "TVA non applicable, article 293 B du Code général des impôts",
+  webdesigner: "Kylian Zamy",
+  host: {
+    name: "Cloudflare, Inc.",
+    address: "101 Townsend Street, San Francisco, CA 94107, États-Unis",
+    url: "https://www.cloudflare.com",
+  },
+  registrar: { name: "OVH SAS", address: "2 rue Kellermann, 59100 Roubaix, France" },
+} as const;
+
 export type NavLink = {
   label: string;
   href: string;

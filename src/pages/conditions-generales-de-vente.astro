@@ -1,10 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE, LEGAL } from "../data/site";
+
+// CGV de Sarah reprises du site d'origine (en vigueur au 01/11/2022). Seules
+// corrections : SIREN renseigné (laissé vide à l'origine) et coquilles.
+const h2 = "font-display mt-4 mb-1 text-3xl font-bold text-primary";
+const h3 = "font-body mt-2 text-sm font-extrabold tracking-wide text-heading uppercase";
 ---
 
 <BaseLayout
   title="Conditions générales de vente | Les Couleurs du Bien-être"
-  description="Conditions générales de vente des prestations proposées par Sarah Vidal, Les Couleurs du Bien-être, à Villaz."
+  description="Conditions générales de vente des prestations de Sarah Vidal, Les Couleurs du Bien-être, à Villaz près d'Annecy : réservation, annulation, paiement."
   path="/conditions-generales-de-vente"
 >
   <section class="bg-white">
@@ -21,10 +27,198 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           prise en charge du kinésithérapeute ou de tout autre professionnel de la santé. Les massages ne
           sont en aucun cas à caractère sexuel.
         </p>
+
+        <h2 class={h2}>Article 1 : Généralités</h2>
         <p>
-          <!-- TODO: conditions d'annulation/report, modalités de paiement et politique
-          de remboursement à confirmer avec Sarah avant mise en ligne. -->
+          Les présentes Conditions Générales de Ventes (CGV) s'appliquent, sans restriction ni réserve, à
+          l'ensemble des prestations proposées par la praticienne Sarah VIDAL, auto-entreprise dénommée
+          ci-dessous Sarah Vidal, immatriculée sous le numéro SIREN {LEGAL.siren}, et à l'ensemble de ses
+          clients, quel que soit leur statut ou qualité.
         </p>
+        <p>
+          En conséquence, la réalisation d'une commande par un client pour une prestation proposée, soit en
+          direct avec Mme Sarah VIDAL, soit par téléphone au {SITE.phone}, soit par e-mail {SITE.email},
+          implique l'adhésion de ce dernier et son acceptation, sans réserve, aux présentes CGV, sauf accord
+          particulier préalablement convenu par écrit entre les parties.
+        </p>
+        <p>
+          Sarah VIDAL se réserve le droit de modifier à tout moment les présentes CGV. Les CGV applicables à
+          une commande sont celles en vigueur au moment de la passation de la commande. En cas de
+          modification, les CGV modifiées ne seront applicables que pour les commandes passées suite à la
+          modification et non aux commandes antérieures.
+        </p>
+        <p>
+          Tout autre document que les présentes CGV (notamment les publicités, prospectus, flyers, …) n'a
+          qu'une valeur informative de l'activité proposée par Sarah VIDAL et n'est pas contractuel.
+        </p>
+
+        <h2 class={h2}>Article 2 : Définitions</h2>
+        <p>
+          Les Prestations proposées sont celles qui figurent sur le site internet de Sarah VIDAL
+          (lescouleursdubienetre.fr) à savoir :
+        </p>
+        <ul class="list-disc pl-5">
+          <li>Les prestations de massage bien-être et de soins énergétiques</li>
+          <li>Les bons cadeaux pour ces mêmes prestations de massages bien-être et de soins énergétiques</li>
+        </ul>
+        <p>
+          Le client est la personne qui réserve une séance de soin bien-être ou qui achète un bon cadeau de
+          Sarah VIDAL. Le bénéficiaire est la personne qui reçoit un bon cadeau de Sarah VIDAL.
+        </p>
+
+        <h2 class={h2}>Article 3 : Conditions de réalisation des prestations</h2>
+        <p>
+          La finalité de l'activité est exclusivement le bien-être de la personne et réalisée par Sarah
+          Vidal. Conformément à la législation en vigueur, les soins bien-être pratiqués par Sarah VIDAL en
+          l'absence de diagnostic et de traitement thérapeutique, ne s'apparentent en rien, ni dans le
+          contenu ni dans l'objectif, à la pratique de la Masso-Kinésithérapie, ainsi qu'à toute pratique
+          médicale. Il s'agit de techniques manuelles de bien-être et de relaxation uniquement. Sont
+          également exclues de l'activité de Sarah VIDAL toutes prestations à caractère érotique ou sexuel.
+        </p>
+        <p>
+          La séance commence par un échange entre Sarah VIDAL et le client qui permet de faire le point sur
+          la condition et les besoins du client afin de déterminer le soin le plus adapté. Un temps sera
+          laissé au client afin qu'il puisse s'installer. Le confort et la pudeur du client seront assurés
+          par des serviettes.
+        </p>
+        <p>
+          À la fin du soin, un temps sera laissé au client pour qu'il reprenne ses esprits et qu'il se
+          rhabille. Un point sera fait sur le ressenti mutuel et quelques conseils seront prodigués.
+        </p>
+        <p>Les séances comprennent la prise en charge, l'installation, le soin et l'échange de fin.</p>
+
+        <h2 class={h2}>Article 4 : Les contre-indications aux soins bien-être</h2>
+        <p>
+          Lorsqu'il est pratiqué par un professionnel qualifié, le soin bien-être est en général sans
+          risque et plutôt bénéfique. Cependant, en cas de maladie ou de doute, il est recommandé au client
+          de demander un avis médical. En effet, il existe des contre-indications totales, locales ou
+          temporaires au soin, et certains traitements requièrent des précautions à prendre par Sarah
+          VIDAL. Dans tous les cas, les zones présentant des varices, des brûlures, des plaies ouvertes ou
+          tout signe d'inflammation ou d'infection locale ne seront pas massées.
+        </p>
+        <p>Les contre-indications aux soins sont :</p>
+        <ul class="list-disc pl-5">
+          <li>État fiévreux, infectieux ou contagieux</li>
+          <li>Hémophilie</li>
+          <li>Phlébite</li>
+          <li>Hypertension artérielle sévère si non traitée efficacement</li>
+          <li>Douleur aiguë, inflammation ou blessure</li>
+          <li>Opération chirurgicale de moins de 3 mois</li>
+          <li>Grossesse de moins de 3 mois</li>
+          <li>État d'ébriété</li>
+          <li>Pacemaker</li>
+        </ul>
+        <p>Quelques précautions à prendre :</p>
+        <ul class="list-disc pl-5">
+          <li>
+            Grossesse plus de 3 mois : il est préférable de demander un avis médical s'il y a un souci pendant
+            la grossesse
+          </li>
+          <li>
+            Cancer, troubles cardiaques, toute maladie systémique, chronique ou auto-immune : un avis médical
+            écrit précisant les précautions à prendre est obligatoire
+          </li>
+          <li>En cas d'allergie, de traitement anticoagulant et/ou d'allaitement, prévenir Mme Sarah VIDAL</li>
+        </ul>
+        <p>
+          En cas de contre-indication, le client déclare informer au préalable Sarah VIDAL au premier
+          rendez-vous ainsi qu'au rendez-vous suivant pour tout changement de son état de santé. En
+          conséquence, Sarah VIDAL se réserve le droit de refuser à tout moment un client dont l'état de
+          santé ne serait pas compatible avec la réalisation d'un soin bien-être sur sa personne sans avis
+          médical préalable.
+        </p>
+
+        <h2 class={h2}>Article 5 : Conditions financières</h2>
+        <p>
+          Les tarifs des prestations proposées sont indiqués en euros sur le site lescouleursdubienetre.fr.
+          Les prix sont fermes et définitifs hors action promotionnelle.
+        </p>
+        <p>
+          Sarah VIDAL n'est pas soumise à la Taxe sur la Valeur Ajoutée (TVA) conformément à l'article 293B
+          du Code Général des Impôts, les prix mentionnés sur le site internet sont donc indiqués sans TVA.
+          Dans l'hypothèse où Sarah VIDAL deviendrait assujettie à la TVA, les tarifs affichés sur le site
+          seront réajustés en conséquence et applicables à toute commande passée suivant la date de son
+          assujettissement.
+        </p>
+        <p>
+          Sarah VIDAL se réserve également le droit de modifier ses tarifs à tout moment, étant précisé que
+          les prestations seront facturées sur la base des tarifs en vigueur au moment de la réservation du
+          rendez-vous ou de l'achat de bons cadeaux.
+        </p>
+
+        <h2 class={h2}>Article 6 : Modalités de prise de rendez-vous</h2>
+        <h3 class={h3}>6.1. Prise de rendez-vous</h3>
+        <p>
+          La prise de rendez-vous s'effectue sur le site internet, par courriel ou par téléphone. Toutes les
+          coordonnées nécessaires à la prise de rendez-vous sont le nom et prénom du client, une adresse
+          e-mail, un numéro de téléphone.
+        </p>
+        <h3 class={h3}>6.2. Conditions de modification et d'annulation d'une séance</h3>
+        <p>
+          Le client a la possibilité de modifier gratuitement sa réservation jusqu'à 48h avant le
+          rendez-vous par téléphone. Aucune modification dans les 48h avant la prestation ne sera réalisée,
+          la séance sera considérée comme due.
+        </p>
+        <p>
+          Le client a la possibilité d'annuler sa réservation jusqu'à 48h avant le rendez-vous par
+          téléphone. Le client n'a pas la possibilité d'annuler sa réservation dans les 48h avant le
+          rendez-vous (sauf justificatif de cas de force majeure). La prestation sera considérée comme due.
+          Cette clause est également valable si le client ne se présente pas le jour de la séance.
+        </p>
+        <h3 class={h3}>6.3. Paiement</h3>
+        <p>
+          Pour toutes réservations par téléphone ou par e-mail, le paiement s'effectue auprès de Sarah VIDAL
+          soit par espèces, chèque ou carte bancaire au début de la séance.
+        </p>
+        <h3 class={h3}>6.4. Gestion des retards</h3>
+        <p>
+          La prise de rendez-vous par Sarah VIDAL est réalisée de façon à ne pas avoir de retard. Un temps
+          est prévu entre chaque soin qui permet d'accueillir le client suivant dans les meilleures
+          conditions possibles.
+        </p>
+        <p>
+          Il est demandé au client d'arriver à l'heure indiquée lors de la prise de rendez-vous. Si le client
+          arrive en avance sur le lieu de rendez-vous, il ne sera peut-être pas encore prêt, si le client
+          arrive en retard, la séance sera écourtée pour ne pas faire attendre les clients suivants. Sarah
+          VIDAL se réserve le droit de refuser un client si son retard est trop important pour permettre la
+          réalisation d'une séance de soin correct et complet. La séance sera considérée comme due.
+        </p>
+
+        <h2 class={h2}>Article 8 : Achat de bons cadeaux</h2>
+        <p>L'achat de bons cadeaux s'effectue auprès de Sarah VIDAL ou par courriel à {SITE.email}.</p>
+        <p>
+          Le client a le choix parmi toutes les prestations présentes sur le site internet
+          lescouleursdubienetre.fr. Un bon cadeau sous format papier sera donné en main propre au client. Le
+          paiement se fera en espèces, par chèque ou par carte bancaire.
+        </p>
+
+        <h2 class={h2}>Article 9 : Incapacité de travail</h2>
+        <p>
+          En cas d'incapacité physique temporaire, par suite de maladie ou d'accident de Sarah VIDAL, elle se
+          réserve le droit de programmer de nouvelles dates d'interventions en concertation avec le client
+          sans qu'il ne puisse être exigé par ce dernier de versement d'indemnité. En cas d'incapacité
+          physique permanente de la praticienne, tout type de contrat ou d'engagement avec les clients de
+          Sarah VIDAL seront résiliés de plein droit sans qu'il ne puisse être réclamé à Sarah VIDAL une
+          indemnité compensatrice.
+        </p>
+
+        <h2 class={h2}>Article 10 : Loi applicable et juridiction compétente</h2>
+        <p>
+          Les présentes CGV sont soumises à la législation française. En cas de litiges, les parties
+          s'engagent à rechercher une solution à l'amiable avant toute action judiciaire. À défaut, tout
+          différend survenant avec un client sera soumis à la compétence exclusive des tribunaux.
+        </p>
+
+        <h2 class={h2}>Article 11 : Responsabilité civile et professionnelle</h2>
+        <p>
+          Il est précisé que la responsabilité de Sarah VIDAL ne saurait être engagée en cas de dommages liés
+          à la négligence d'un client, en particulier s'il n'a pas révélé à Sarah VIDAL l'existence de
+          contre-indications l'affectant, que ce soit lors de l'entretien de la première séance visant à
+          l'alerter des contre-indications applicables, ou des rendez-vous ultérieurs en cas de
+          modifications de son état de santé personnel. Voir toutes les contre-indications à l'article 4.
+        </p>
+
+        <p class="mt-4 text-xs text-heading/70">Date d'entrée en vigueur : 01/11/2022</p>
       </div>
     </div>
   </section>
