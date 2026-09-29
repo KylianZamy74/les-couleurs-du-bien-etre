@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbSchema } from "../data/schema";
+---
+
+<BaseLayout
+  title="Blog | Les Couleurs du Bien-être | Villaz"
+  description="Le blog de Sarah Vidal arrive bientôt : conseils bien-être, massages, reiki et bols tibétains à Villaz, près d'Annecy."
+  path="/blog"
+  jsonLd={breadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Blog", path: "/blog" },
+  ])}
+>
+  <section class="bg-bg-cream">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <h1 class="font-display text-4xl font-bold text-heading sm:text-5xl">Le blog arrive bientôt</h1>
+      <p class="font-body text-base leading-relaxed text-text">
+        Le blog n'est pas encore disponible, mais il arrive très bientôt. J'y partagerai des conseils et des
+        petits rituels pour prendre soin de vous au quotidien.
+      </p>
+      <p class="font-body text-base leading-relaxed text-text">
+        En attendant, découvrez{" "}
+        <a href="/massages" class="font-bold text-primary hover:underline">les massages</a>,{" "}
+        <a href="/soins-energetiques" class="font-bold text-primary hover:underline">les soins énergétiques</a> ou{" "}
+        <a href="/accompagnement" class="font-bold text-primary hover:underline">l'accompagnement personnalisé</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
