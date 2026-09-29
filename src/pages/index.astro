@@ -1,8 +1,9 @@
 ---
+import { BOOKING_ANSWER } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Reviews from "../components/Reviews.astro";
-import Faq from "../components/Faq.astro";
+import FaqSection from "../components/FaqSection.astro";
 import { Image } from "astro:assets";
 import { localBusinessSchema, faqSchema } from "../data/schema";
 
@@ -12,7 +13,7 @@ import textureSable from "../assets/images/sable-zen-cercles-meditation.webp";
 
 import imgMassageIntuitif from "../assets/images/sarah-vidal-massage-mains.webp";
 import imgPierresChaudes from "../assets/images/massage-pierres-chaudes-ambiance-spa.webp";
-import imgReiki from "../assets/images/huiles-essentielles-cristaux-preparation-massage.webp";
+import imgReiki from "../assets/images/soin-energetique-reiki-imposition-mains.webp";
 import imgAccompagnement from "../assets/images/sarah-vidal-seance-accompagnement.webp";
 import imgBolsTibetains from "../assets/images/sarah-vidal-soin-bol-tibetain.webp";
 
@@ -29,8 +30,7 @@ const faqItems = [
   },
   {
     question: "Comment réserver une séance ?",
-    answer:
-      "Le plus simple est de me contacter directement via le formulaire de contact du site : je reviens vers vous pour convenir ensemble d'un créneau adapté à vos disponibilités.",
+    answer: BOOKING_ANSWER,
   },
   {
     question: "Quels soins proposez-vous ?",
@@ -75,7 +75,7 @@ const faqItems = [
   <!-- Intro / bio -->
   <section class="bg-white">
     <div class="mx-auto grid max-w-6xl gap-14 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-center lg:gap-28">
-        <div class="reveal relative mx-auto w-full max-w-[360px]" style="aspect-ratio: 405 / 385;">
+        <div class="reveal relative mx-auto w-full max-w-[280px] -translate-x-[12%] sm:max-w-[360px] sm:translate-x-0" style="aspect-ratio: 405 / 385;">
           <Image
             src={textureSable}
             alt="Cercles tracés dans le sable, symbole de méditation zen"
@@ -140,15 +140,15 @@ const faqItems = [
           href="/massages/massage-intuitif"
           title="Massage Intuitif"
           description="Massage sur mesure aux huiles essentielles, plusieurs techniques utilisées en fonction de vos besoins."
-          meta="Massage de 60 minutes · 75 €"
+          meta="Massage de 1h · 75 €"
           image={imgMassageIntuitif}
-          alt="Sarah Vidal pratiquant un massage bien-être"
+          alt="Sarah Vidal pratiquant un massage intuitif à Villaz"
         />
         <ServiceCard
           href="/massages/massage-pierres-chaudes"
           title="Massage aux pierres chaudes"
           description="Massage enveloppant avec un profond relâchement musculaire."
-          meta="Massage de 75 minutes · 90 €"
+          meta="Massage de 1h15 · 90 €"
           image={imgPierresChaudes}
           alt="Massage aux pierres chaudes dans une ambiance spa feutrée"
           delay={80}
@@ -157,9 +157,9 @@ const faqItems = [
           href="/soins-energetiques/reiki"
           title="Soin Reiki"
           description="Soin énergétique non conventionnel d'origine japonaise, pratiqué par apposition des mains."
-          meta="Soin de 60 minutes · 65 €"
+          meta="Soin de 1h · 65 €"
           image={imgReiki}
-          alt="Huiles essentielles et cristaux préparés pour un massage"
+          alt="Soin reiki par imposition des mains sur une personne allongée"
           delay={160}
         />
         <ServiceCard
@@ -172,10 +172,10 @@ const faqItems = [
           delay={240}
         />
         <ServiceCard
-          href="/soins-energetiques/bols-tibetain"
+          href="/soins-energetiques/bols-tibetains"
           title="Voyage sonore aux bols tibétains"
           description="Soin qui utilise les sons et vibrations des bols tibétains pour vous transporter dans un vrai cocon."
-          meta="Soin de 75 minutes · 85 €"
+          meta="Soin de 1h15 · 85 €"
           image={imgBolsTibetains}
           alt="Sarah Vidal réalisant un soin au bol tibétain"
           delay={320}
@@ -216,7 +216,7 @@ const faqItems = [
             text: "Je vous partage quelques conseils simples pour prolonger les bienfaits du soin au quotidien.",
           },
         ].map((item, index) => (
-          <div class="reveal flex flex-col items-center gap-3 text-center" style={`animation-delay:${index * 80}ms`}>
+          <div class="reveal flex flex-col items-center gap-3 text-center" style={`--reveal-delay: ${index * 80}ms`}>
             <span class="font-display text-5xl font-bold text-primary/40">{item.step}</span>
             <h3 class="font-body text-base font-extrabold tracking-wide text-heading uppercase">{item.title}</h3>
             <p class="font-body text-sm leading-relaxed text-text">{item.text}</p>
@@ -226,16 +226,7 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="bg-bg-cream">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div class="reveal mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
-        <p class="font-body text-sm font-extrabold tracking-widest text-primary uppercase">Questions fréquentes</p>
-        <h2 class="font-display text-4xl font-bold text-heading sm:text-5xl">Avant de prendre rendez-vous</h2>
-      </div>
-      <Faq items={faqItems} />
-    </div>
-  </section>
+  <FaqSection items={faqItems} bg="bg-bg-cream" />
 
   <!-- CTA -->
   <section class="bg-bg-tan">

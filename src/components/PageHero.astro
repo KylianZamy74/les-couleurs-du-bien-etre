@@ -1,0 +1,35 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import lotusIcon from "../assets/icons/icone-lotus-couleurs-bien-etre.svg";
+
+interface Props {
+  title: string;
+  tagline: string;
+  image: ImageMetadata;
+  alt: string;
+}
+
+const { title, tagline, image, alt } = Astro.props;
+---
+
+<section class="relative isolate flex min-h-[420px] items-center overflow-hidden sm:min-h-[480px]">
+  <Image
+    src={image}
+    alt={alt}
+    width={1600}
+    height={900}
+    class="absolute -inset-y-[60px] inset-x-0 -z-10 h-[calc(100%+120px)] w-full object-cover"
+    data-parallax="0.25"
+    data-parallax-max="50"
+    priority
+  />
+  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+    <div class="reveal mx-auto flex max-w-2xl flex-col items-center justify-center gap-3 border border-primary/40 bg-[#FFFCF5] px-10 py-5 text-center shadow-[0_12px_40px_-16px_rgba(0,0,0,0.4)] sm:px-20 sm:py-6">
+      <h1 class="font-display text-6xl font-bold text-primary sm:text-7xl">{title}</h1>
+      <Image src={lotusIcon} alt="Icône lotus des Couleurs du bien-être" width={80} height={80} class="breathe h-20 w-20" />
+      <span class="h-px w-full bg-primary" aria-hidden="true"></span>
+      <p class="font-body text-sm font-semibold tracking-[0.15em] text-btn-text uppercase">{tagline}</p>
+    </div>
+  </div>
+</section>

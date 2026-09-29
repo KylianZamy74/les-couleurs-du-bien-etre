@@ -1,0 +1,109 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import { CATEGORIES, BOOKING_ANSWER } from "../../data/site";
+
+import bgTexture from "../../assets/images/ombre-fleur-branche-zen.webp";
+import imgSeance from "../../assets/images/massage-pierres-chaudes-seance.webp";
+import imgPierres from "../../assets/images/massage-pierres-chaudes-pose-galets.webp";
+
+const faqItems = [
+  {
+    question: "Quels sont les bienfaits du massage aux pierres chaudes ?",
+    answer:
+      "L'action des pierres chaudes sur la peau apporte un relâchement musculaire profond et un sentiment d'apaisement. C'est un massage drainant et détoxifiant qui améliore la circulation sanguine.",
+  },
+  {
+    question: "Quelles pierres sont utilisées pendant le massage ?",
+    answer:
+      "Des pierres volcaniques en basalte naturel, héritage des terres d'Hawaï. Nées de la chaleur extrême du magma terrestre puis refroidies brutalement par l'eau de la mer, elles ont la particularité de stocker puis de libérer la chaleur.",
+  },
+  {
+    question: "Combien de temps dure la séance et quel est le tarif ?",
+    answer:
+      "La séance dure 1h15, pour 90 €. Elle est un peu plus longue qu'un massage intuitif, la mise en place et le retrait des pierres demandant un peu plus de temps.",
+  },
+  {
+    question: "Quelle différence avec le massage intuitif ?",
+    answer:
+      "Le massage intuitif est un massage totalement sur mesure aux huiles essentielles, adapté à vos ressentis et à vos points de tension du moment. Le massage aux pierres chaudes ajoute la chaleur des pierres volcaniques, pour un relâchement musculaire plus profond et enveloppant.",
+  },
+  {
+    question: "Le massage aux pierres chaudes convient-il à tout le monde ?",
+    answer:
+      "Si vous avez une condition médicale particulière ou un doute, parlez-m'en lors de la prise de rendez-vous : nous choisirons ensemble le massage le plus adapté à votre situation, éventuellement le massage intuitif à la place.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer: BOOKING_ANSWER,
+  },
+];
+---
+
+<ServiceLayout
+  title="Massage pierres chaudes à Villaz | Couleurs du Bien-être"
+  description="Massage aux pierres chaudes volcaniques à Villaz, près d'Annecy : relâchement musculaire profond. Séance de 1h15, 90 €. Réservez avec Sarah Vidal."
+  path="/massages/massage-pierres-chaudes"
+  name="Massage aux pierres chaudes"
+  serviceDescription="Massage enveloppant aux pierres volcaniques chaudes : l'action des pierres chaudes sur la peau apporte un relâchement musculaire profond et améliore la circulation sanguine."
+  category={CATEGORIES.massages}
+  tagline="Une rencontre privilégiée entre massage et chaleur"
+  prices={[{ label: "Séance", duration: "1h15", price: "90 €" }]}
+  bgImage={bgTexture}
+  bgAlt="Ombre d'une branche fleurie projetée sur un mur blanc"
+  photo={imgSeance}
+  photoAlt="Sarah Vidal pratiquant un massage aux pierres chaudes sur le dos à Villaz"
+  detailTitle="Les pierres chaudes"
+  detailImage={imgPierres}
+  detailImageAlt="Pose de pierres volcaniques chaudes sur le dos pendant un massage"
+  disclaimer="Ce massage est à visée de détente, de bien-être et de relaxation, non thérapeutique"
+  faqItems={faqItems}
+  related={{ label: "le massage intuitif", href: "/massages/massage-intuitif" }}
+>
+  <p class="font-body text-base leading-relaxed text-text">
+    D'une douceur infinie, ces pierres accumulent la chaleur pour des effets incroyables sur le corps.
+  </p>
+  <p class="font-body text-base leading-relaxed text-text">
+    L'action des pierres chaudes sur la peau apporte un relâchement musculaire profond et un sentiment
+    d'apaisement. C'est un massage drainant et détoxifiant qui améliore la circulation sanguine.
+  </p>
+
+  <Fragment slot="detail">
+    <p class="font-body text-base leading-relaxed text-text">
+      Héritage des terres d'Hawaï, les pierres volcaniques possèdent la particularité de pouvoir stocker
+      et libérer la chaleur.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Composées de pierre de basalte naturel, elles sont nées de la chaleur extrême du magma terrestre,
+      puis du refroidissement brutal par l'eau de la mer.
+    </p>
+  </Fragment>
+
+  <Fragment slot="extra">
+    <!-- Pour qui / déroulé -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+          Le massage aux pierres chaudes, en bref
+        </p>
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Pour qui est fait le massage aux pierres chaudes ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          Le massage aux pierres chaudes s'adresse à toute personne qui a besoin de relâcher en profondeur
+          ses tensions musculaires : la chaleur des pierres enveloppe le corps et aide les muscles à se
+          détendre plus facilement qu'avec les mains seules. C'est un massage idéal pour s'offrir une vraie
+          pause, se réchauffer et retrouver un sentiment d'apaisement.
+        </p>
+        <h3 class="font-display mt-10 mb-4 text-3xl font-bold text-heading">Comment se déroule la séance ?</h3>
+        <p class="font-body text-base leading-relaxed text-text">
+          La séance commence par un temps d'échange pour comprendre vos besoins du moment et vos zones de
+          tension. Les pierres chaudes sont ensuite déposées sur le corps et utilisées pour masser, en
+          alternance avec les mains. Comptez 1h15 : la mise en place et le retrait des pierres demandent
+          un peu plus de temps qu'un massage classique. Les séances ont lieu à Villaz, à quelques minutes
+          d'Annecy.
+        </p>
+      </div>
+    </section>
+
+  </Fragment>
+</ServiceLayout>

@@ -10,7 +10,7 @@ const { items } = Astro.props;
   {items.map((item, index) => (
     <details
       class="reveal group rounded-xl bg-card-bg px-5 py-4 shadow-[0_4px_16px_-12px_rgba(0,0,0,0.4)] open:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.5)]"
-      style={`transition-delay: ${index * 60}ms`}
+      style={`--reveal-delay: ${index * 60}ms`}
     >
       <summary class="font-body flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-heading marker:content-none">
         {item.question}

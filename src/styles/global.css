@@ -25,6 +25,9 @@
   --font-display: "Amatic SC", cursive;
   --font-body: "Mulish", sans-serif;
   --font-script: "Alex Brush", cursive;
+
+  /* Survols et transitions un peu plus lents que le défaut : plus doux. */
+  --default-transition-duration: 300ms;
 }
 
 html {
@@ -56,22 +59,68 @@ body {
   color: #ffffff;
 }
 
-/* Gentle fade-and-rise entrance on load, pure CSS (no JS/IntersectionObserver:
-   guarantees content always ends at opacity 1 even if something goes wrong,
-   content is never held hidden waiting on a script). */
+/* Apparition douce au défilement : chaque .reveal monte et se dévoile quand
+   il entre à l'écran (classe is-visible posée par BaseLayout). Le masquage
+   n'existe que si le JS tourne (classe js sur <html>) et hors
+   prefers-reduced-motion : sans JS, tout reste visible. Anime la propriété
+   translate (pas transform) pour ne pas écraser les effets de survol. */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    animation: reveal-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  .js .reveal {
+    opacity: 0;
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    animation: reveal-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+  }
+}
+
+@media print {
+  .js .reveal {
+    opacity: 1;
   }
 }
 
 @keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    translate: 0 18px;
   }
   to {
     opacity: 1;
-    transform: none;
+    translate: none;
   }
+}
+
+/* Lotus qui « respire » très lentement. */
+@media (prefers-reduced-motion: no-preference) {
+  .breathe {
+    animation: breathe 7s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes breathe {
+  from {
+    scale: 1;
+    opacity: 0.85;
+  }
+  to {
+    scale: 1.06;
+    opacity: 1;
+  }
+}
+
+/* Fondu enchaîné entre les pages (View Transitions natives, sans JS) ; le
+   header reste en place pendant le fondu. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+
+header {
+  view-transition-name: site-header;
 }

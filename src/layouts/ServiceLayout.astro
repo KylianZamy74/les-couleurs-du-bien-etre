@@ -1,0 +1,126 @@
+---
+// Gabarit commun des pages de soin (massages, soins énergétiques) : fil
+// d'Ariane, bloc principal, section détail, contenus propres à la page (slot
+// "extra"), mention non thérapeutique, FAQ et maillage interne. Metas et
+// JSON-LD sont dérivés des mêmes props, pour rester alignés avec le contenu.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import FaqSection from "../components/FaqSection.astro";
+import ServiceIntro, { type Price } from "../components/ServiceIntro.astro";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "../data/schema";
+import lotusIcon from "../assets/icons/icone-lotus-couleurs-bien-etre.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  name: string;
+  serviceDescription: string;
+  category: { name: string; path: string; all: string };
+  tagline: string;
+  prices: Price[];
+  bgImage: ImageMetadata;
+  bgAlt: string;
+  photo: ImageMetadata;
+  photoAlt: string;
+  detailTitle: string;
+  detailImage: ImageMetadata;
+  detailImageAlt: string;
+  disclaimer: string;
+  faqItems: { question: string; answer: string }[];
+  related: { label: string; href: string };
+}
+
+const {
+  title,
+  description,
+  path,
+  name,
+  serviceDescription,
+  category,
+  tagline,
+  prices,
+  bgImage,
+  bgAlt,
+  photo,
+  photoAlt,
+  detailTitle,
+  detailImage,
+  detailImageAlt,
+  disclaimer,
+  faqItems,
+  related,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Accueil", path: "/" },
+      { name: category.name, path: category.path },
+      { name, path },
+    ]),
+    serviceSchema({ name, description: serviceDescription, path }),
+    faqSchema(faqItems),
+  ]}
+>
+  <!-- Breadcrumb -->
+  <div class="bg-primary">
+    <div class="font-body mx-auto flex max-w-6xl items-center gap-2 px-4 py-4 text-xs font-bold tracking-widest text-white uppercase sm:px-6">
+      <a href={category.path} class="hover:underline">{category.name}</a>
+      <span aria-hidden="true">›</span>
+      <span>{name}</span>
+    </div>
+  </div>
+
+  <ServiceIntro title={name} tagline={tagline} prices={prices} bgImage={bgImage} bgAlt={bgAlt} photo={photo} photoAlt={photoAlt}>
+    <slot />
+  </ServiceIntro>
+
+  <!-- Détail -->
+  <section class="bg-bg-cream">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-start px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-0">
+      <div class="reveal relative z-10 flex flex-col gap-4 bg-white p-8 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.3)] sm:p-10 sm:pr-16">
+        <div class="flex items-center gap-3">
+          <Image src={lotusIcon} alt="Icône lotus des Couleurs du bien-être" width={64} height={64} class="breathe h-16 w-16" />
+          <h2 class="font-display text-4xl font-bold text-primary sm:text-5xl">{detailTitle}</h2>
+        </div>
+        <slot name="detail" />
+      </div>
+      <div class="reveal relative z-20 mx-auto mt-6 w-full max-w-[480px] lg:mt-0 lg:-ml-8" style="aspect-ratio: 470/338">
+        <Image
+          src={detailImage}
+          alt={detailImageAlt}
+          width={470}
+          height={338}
+          class="absolute inset-0 z-0 h-full w-full object-cover"
+        />
+        <div class="pointer-events-none absolute -top-3 -left-3 z-10 lg:-top-5 lg:-left-5 h-full w-full border-[3px] border-primary" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <slot name="extra" />
+
+  <p class="font-body mx-auto max-w-3xl px-4 pb-12 text-center text-xs leading-relaxed text-heading/60 sm:px-6">
+    {disclaimer}.{" "}
+    <a href="/conditions-generales-de-vente" class="underline hover:text-primary">Conditions générales de vente</a>.
+  </p>
+
+  <FaqSection items={faqItems} bg="bg-bg-cream" />
+
+  <!-- Maillage interne -->
+  <section class="bg-white">
+    <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-16 text-center sm:px-6 sm:py-20">
+      <p class="font-body text-sm leading-relaxed text-text">
+        Vous hésitez avec un autre soin&nbsp;?{" "}
+        <a href={related.href} class="font-bold text-primary hover:underline">Découvrez {related.label}</a>{" "}
+        ou <a href={category.path} class="font-bold text-primary hover:underline">retrouvez {category.all}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

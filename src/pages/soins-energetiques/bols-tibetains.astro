@@ -1,0 +1,129 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import { CATEGORIES, BOOKING_ANSWER } from "../../data/site";
+
+import bgTexture from "../../assets/images/eau-vibrations-resonance-sonore.webp";
+import imgSoin from "../../assets/images/sarah-vidal-soin-bol-tibetain.webp";
+import imgBol from "../../assets/images/bol-tibetain-utilisation-mailloche.webp";
+
+const faqItems = [
+  {
+    question: "Qu'est-ce qu'un voyage sonore aux bols tibétains ?",
+    answer:
+      "C'est un soin où les bols tibétains sont posés à même le corps ou autour de vous, puis activés avec douceur. Leurs sons et leurs vibrations créent un massage vibratoire qui vous plonge dans un état de détente et de relaxation profonde.",
+  },
+  {
+    question: "De quoi sont faits les bols tibétains ?",
+    answer:
+      "Les bols tibétains, aussi appelés bols chantants, sont faits d'un alliage de 7 métaux. Leurs effets proviennent de la vibration et de la sonorité qu'ils émettent.",
+  },
+  {
+    question: "Combien de temps dure la séance et quel est le tarif ?",
+    answer: "Le voyage sonore aux bols tibétains dure 1h15, pour 85 €.",
+  },
+  {
+    question: "Faut-il savoir méditer pour profiter du soin ?",
+    answer:
+      "Non, aucune pratique n'est nécessaire. Vous restez allongé et vous vous laissez porter par les sons : les bols font le reste.",
+  },
+  {
+    question: "Le soin aux bols tibétains convient-il à tout le monde ?",
+    answer:
+      "Si vous avez une condition médicale particulière ou un doute, parlez-m'en lors de la prise de rendez-vous : nous verrons ensemble si ce soin vous convient, ou si un autre soin est plus adapté.",
+  },
+  {
+    question: "Bols tibétains ou reiki, lequel choisir ?",
+    answer:
+      "Le voyage sonore (1h15, 85 €) passe par les sons et les vibrations des bols. Le reiki (1h, 65 €) passe par l'imposition des mains, dans le calme. Si vous hésitez, parlons-en ensemble.",
+  },
+  {
+    question: "Comment réserver une séance ?",
+    answer: BOOKING_ANSWER,
+  },
+];
+---
+
+<ServiceLayout
+  title="Bols tibétains à Villaz | Couleurs du Bien-être"
+  description="Voyage sonore aux bols tibétains à Villaz, près d'Annecy : massage vibratoire et relaxation profonde. Séance de 1h15, 85 €, avec Sarah Vidal."
+  path="/soins-energetiques/bols-tibetains"
+  name="Voyage sonore aux bols tibétains"
+  serviceDescription="Massage vibratoire aux bols tibétains posés à même le corps : leurs sons et vibrations plongent dans un état de détente et de relaxation profonde."
+  category={CATEGORIES.soins}
+  tagline="Rééquilibre les énergies du corps"
+  prices={[{ label: "Séance", duration: "1h15", price: "85 €" }]}
+  bgImage={bgTexture}
+  bgAlt="Ondulations à la surface de l'eau, comme les vibrations d'un bol tibétain"
+  photo={imgSoin}
+  photoAlt="Sarah Vidal jouant d'un bol tibétain lors d'un voyage sonore à Villaz"
+  detailTitle="Les bols tibétains"
+  detailImage={imgBol}
+  detailImageAlt="Bol tibétain tenu dans la main et activé avec une mailloche"
+  disclaimer="Ce soin est à visée de bien-être et de relaxation, non thérapeutique, et ne remplace pas un avis médical"
+  faqItems={faqItems}
+  related={{ label: "le soin reiki", href: "/soins-energetiques/reiki" }}
+>
+  <p class="font-body text-base leading-relaxed text-text">
+    Les bols tibétains posés à même le corps créent un massage appelé massage vibratoire. Activés avec
+    douceur et à un rythme adapté à vous-même, leurs vibrations pénètrent au cœur des cellules et nous
+    plongent dans un état de détente et de relaxation profonde.
+  </p>
+  <p class="font-body text-base leading-relaxed text-text">
+    Les bols tibétains participent à la libération des charges énergétiques et émotionnelles. Ils aident
+    à se ressourcer en énergie et à apporter une sensation de mieux-être.
+  </p>
+
+  <Fragment slot="detail">
+    <p class="font-body text-base leading-relaxed text-text">
+      Les bols tibétains ou bols chantants sont faits d'un alliage de 7 métaux.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Leurs effets sur le corps proviennent de la vibration et de la sonorité qu'ils émettent.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Les ondes produites par les bols résonnent dans tout le corps humain. Ils sont utilisés pour aider
+      à la méditation et ressentir un bien-être profond.
+    </p>
+  </Fragment>
+
+  <Fragment slot="extra">
+    <!-- Pour qui -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <p class="font-body mb-2 text-sm font-extrabold tracking-widest text-primary uppercase">
+          Le voyage sonore, en bref
+        </p>
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Pour qui est fait le voyage sonore aux bols tibétains ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          Le voyage sonore s'adresse à toute personne qui a besoin de lâcher prise et de se ressourcer. Si
+          votre tête tourne sans arrêt, si vous vous sentez chargé émotionnellement ou simplement fatigué, les
+          sons et les vibrations des bols vous transportent dans un vrai cocon, le temps de la séance.
+        </p>
+        <p class="font-body mt-5 text-base leading-relaxed text-text">
+          C'est aussi une belle porte d'entrée si vous avez du mal à vous détendre ou à méditer : il n'y a
+          rien à faire, seulement écouter et ressentir.
+        </p>
+      </div>
+    </section>
+
+    <!-- Déroulé -->
+    <section class="bg-white">
+      <div class="reveal mx-auto max-w-3xl border-t border-border-soft px-4 pt-14 pb-16 text-center sm:px-6">
+        <h2 class="font-display mb-5 text-4xl font-bold text-heading sm:text-5xl">
+          Comment se déroule un voyage sonore ?
+        </h2>
+        <p class="font-body text-base leading-relaxed text-text">
+          La séance dure 1h15. Nous commençons par un temps d'échange sur vos besoins du moment. Vous
+          vous installez ensuite allongé, et je pose les bols à même le corps ou autour de vous avant de les
+          activer, avec douceur et à un rythme adapté à vous-même.
+        </p>
+        <p class="font-body mt-5 text-base leading-relaxed text-text">
+          Les séances ont lieu à Villaz, en Haute-Savoie, à quelques minutes d'Annecy, dans un espace calme
+          pensé pour que vous puissiez vous poser dès votre arrivée.
+        </p>
+      </div>
+    </section>
+  </Fragment>
+</ServiceLayout>

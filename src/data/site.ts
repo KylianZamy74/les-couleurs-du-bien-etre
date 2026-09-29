@@ -18,6 +18,10 @@ export const SITE = {
     "https://www.google.com/maps/place/Les+couleurs+du+bien-%C3%AAtre/@45.9622459,6.2162983,530m/data=!3m2!1e3!4b1!4m6!3m5!1s0x478b896354558f6f:0xf0f6f8cee70ee60a!8m2!3d45.9622459!4d6.2162983!16s%2Fg%2F11tp7sv5gr",
 } as const;
 
+// Réponse FAQ « comment réserver », commune à toutes les pages (pas de
+// formulaire de contact : rendez-vous par téléphone ou e-mail).
+export const BOOKING_ANSWER = `Le plus simple est de m'appeler au ${SITE.phone} ou de m'écrire à ${SITE.email} : nous convenons ensemble d'un créneau adapté à vos disponibilités.`;
+
 export type NavLink = {
   label: string;
   href: string;
@@ -39,8 +43,17 @@ export const NAV_LINKS: NavLink[] = [
     href: "/soins-energetiques",
     children: [
       { label: "Reiki", href: "/soins-energetiques/reiki" },
-      { label: "Bols tibétains", href: "/soins-energetiques/bols-tibetain" },
+      { label: "Bols tibétains", href: "/soins-energetiques/bols-tibetains" },
     ],
   },
   { label: "Accompagnement", href: "/accompagnement" },
+  { label: "Blog", href: "/blog" },
 ];
+
+// Pages publiées mais exclues de l'indexation (balise robots + sitemap).
+export const NOINDEX_PATHS: string[] = ["/blog"];
+
+export const CATEGORIES = {
+  massages: { name: "Massages", path: "/massages", all: "tous les massages" },
+  soins: { name: "Soins énergétiques", path: "/soins-energetiques", all: "tous les soins énergétiques" },
+} as const;
