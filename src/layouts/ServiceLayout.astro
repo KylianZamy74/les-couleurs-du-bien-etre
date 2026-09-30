@@ -79,6 +79,7 @@ const {
 
   <ServiceIntro title={name} tagline={tagline} prices={prices} bgImage={bgImage} bgAlt={bgAlt} photo={photo} photoAlt={photoAlt}>
     <slot />
+    <slot name="note" slot="note" />
   </ServiceIntro>
 
   <!-- Détail -->
