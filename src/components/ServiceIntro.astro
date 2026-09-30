@@ -1,6 +1,6 @@
 ---
 // Bloc principal d'une page de soin : photo encadrée sur texture, titre,
-// accroche, texte (slot), tarifs et bouton de contact. Le titre est un h1 sur
+// accroche, texte (slot), tarifs, précision éventuelle (slot "note") et bouton de contact. Le titre est un h1 sur
 // les pages de soin, un h2 quand la page a déjà un hero (accompagnement).
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
@@ -20,6 +20,8 @@ interface Props {
 
 const { title, headingLevel = "h1", tagline, prices, bgImage, bgAlt, photo, photoAlt } = Astro.props;
 const Heading = headingLevel;
+// Rendu puis testé : un slot transmis par un layout compte comme présent même vide.
+const note = Astro.slots.has("note") ? (await Astro.slots.render("note")).trim() : "";
 ---
 
 <section class="bg-white">
@@ -59,6 +61,7 @@ const Heading = headingLevel;
           </div>
         ))}
       </dl>
+      {note && <p class="font-body -mt-2 text-sm leading-relaxed text-heading/80" set:html={note} />}
       <a
         href="/contact"
         class="font-body inline-flex w-fit items-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-sm transition-transform hover:scale-[1.03] active:scale-[0.98]"
