@@ -34,6 +34,8 @@ interface Props {
 
 const { title, description, path, name, tagline, heroImage, heroAlt, kicker, heading, cards, disclaimer, faqItems, cta } =
   Astro.props;
+// Trois cartes : une ligne de trois dès la tablette, pour ne pas laisser de carte seule.
+const threeCols = cards.length % 3 === 0;
 ---
 
 <BaseLayout
@@ -64,8 +66,8 @@ const { title, description, path, name, tagline, heroImage, heroAlt, kicker, hea
     </div>
 
     <!-- Cards -->
-    <div class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20">
-      <div class="grid gap-6 sm:grid-cols-2">
+    <div class:list={["mx-auto px-4 pb-16 sm:px-6 sm:pb-20", threeCols ? "max-w-5xl" : "max-w-3xl"]}>
+      <div class:list={["grid gap-6", threeCols ? "md:grid-cols-3" : "sm:grid-cols-2"]}>
         {cards.map((card, index) => (
           <a
             href={card.href}

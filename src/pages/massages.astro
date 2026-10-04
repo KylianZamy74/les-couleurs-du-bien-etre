@@ -5,17 +5,18 @@ import CategoryLayout from "../layouts/CategoryLayout.astro";
 import heroMassages from "../assets/images/huiles-essentielles-cristaux-preparation-massage.webp";
 import imgMassageIntuitif from "../assets/images/huile-essentielle-application-mains.webp";
 import imgPierresChaudes from "../assets/images/massage-pierres-chaudes-application-mains.webp";
+import imgDrainage from "../assets/images/drainage-lymphatique-mains-jambe.webp";
 
 const faqItems = [
   {
-    question: "Quelle est la différence entre le massage intuitif et le massage aux pierres chaudes ?",
+    question: "Quelle est la différence entre le massage intuitif, le massage aux pierres chaudes et le drainage lymphatique ?",
     answer:
-      "Le massage intuitif est un massage totalement sur mesure, avec ou sans huiles essentielles, adapté à votre état physique, vos ressentis et vos points de tension du moment. Le massage aux pierres chaudes utilise la chaleur de pierres volcaniques pour un relâchement musculaire plus profond et enveloppant. Les deux sont complémentaires : parlons-en ensemble si vous hésitez entre les deux.",
+      "Le massage intuitif est un massage totalement sur mesure, avec ou sans huiles essentielles, adapté à votre état physique, vos ressentis et vos points de tension du moment. Le massage aux pierres chaudes utilise la chaleur de pierres volcaniques pour un relâchement musculaire plus profond et enveloppant. Le drainage lymphatique, inspiré de la méthode Vodder, procède par gestes doux, lents et précis pour une sensation de légèreté. Parlons-en ensemble si vous hésitez.",
   },
   {
     question: "Combien de temps faut-il prévoir, et quel est le tarif ?",
     answer:
-      "Comptez 1h pour le massage intuitif (75 €) et 1h15 pour le massage aux pierres chaudes (90 €), la mise en place et le retrait des pierres demandant un peu plus de temps.",
+      "Comptez 1h pour le massage intuitif (75 €), 1h pour le drainage lymphatique (85 €, ou en forfait de 5 ou 10 séances) et 1h15 pour le massage aux pierres chaudes (90 €), la mise en place et le retrait des pierres demandant un peu plus de temps.",
   },
   {
     question: "Le massage aux pierres chaudes convient-il à tout le monde ?",
@@ -36,13 +37,13 @@ const faqItems = [
 
 <CategoryLayout
   title="Massages bien-être près d'Annecy | Couleurs du Bien-être"
-  description="Massages bien-être près d'Annecy, à Villaz : massage intuitif avec ou sans huiles essentielles et massage aux pierres chaudes, par Sarah Vidal."
+  description="Massages bien-être près d'Annecy, à Villaz : massage intuitif, massage aux pierres chaudes et drainage lymphatique, par Sarah Vidal."
   path="/massages"
   name="Massages"
   tagline="Offrez-vous un moment de reconnexion avec votre corps"
   heroImage={heroMassages}
   heroAlt="Huiles essentielles et cristaux préparés pour un massage"
-  kicker="Deux façons de prendre soin de vous"
+  kicker="Trois façons de prendre soin de vous"
   heading="Des massages sur mesure, à Villaz"
   cards={[
     {
@@ -63,6 +64,15 @@ const faqItems = [
       image: imgPierresChaudes,
       alt: "Application de pierres chaudes lors d'un massage",
     },
+    {
+      href: "/massages/drainage-lymphatique",
+      title: "Drainage lymphatique",
+      description: "Gestes doux, lents et précis pour une circulation fluide et une sensation de légèreté.",
+      serviceDescription:
+        "Drainage lymphatique inspiré de la méthode Vodder : des gestes doux, lents et précis qui stimulent la circulation de la lymphe et apportent une profonde sensation de légèreté.",
+      image: imgDrainage,
+      alt: "Mains posées sur la jambe pendant un drainage lymphatique",
+    },
   ]}
   disclaimer="Ces massages sont à visée de détente, de bien-être et de relaxation, non thérapeutique"
   faqItems={faqItems}
@@ -72,7 +82,7 @@ const faqItems = [
   }}
 >
   <p class="font-body text-base leading-relaxed text-text">
-    Le massage intuitif et le massage aux pierres chaudes sont deux massages à visée de détente, de
+    Le massage intuitif, le massage aux pierres chaudes et le drainage lymphatique sont trois soins à visée de détente, de
     bien-être et de relaxation, pensés pour s'adapter à votre état physique, à vos ressentis et à vos
     besoins du moment. Chaque séance se déroule dans un cadre calme et bienveillant à Villaz, à
     quelques minutes d'Annecy, pour vous offrir un vrai moment de reconnexion avec votre corps.
@@ -91,7 +101,7 @@ const faqItems = [
         <p class="font-body text-base leading-relaxed text-text">
           Un massage bien-être, c'est un temps rien que pour vous : un accompagnement par le toucher, pensé
           pour la détente, la relaxation et le lâcher-prise, et non pour traiter une pathologie. Que ce soit
-          par le massage intuitif, avec ou sans huiles essentielles, ou par la chaleur des pierres volcaniques, chaque
+          par le massage intuitif, avec ou sans huiles essentielles, par la chaleur des pierres volcaniques ou par les gestes lents du drainage lymphatique, chaque
           geste est adapté à votre corps et à votre rythme du moment.
         </p>
         <p class="font-body mt-4 text-base leading-relaxed text-text">
