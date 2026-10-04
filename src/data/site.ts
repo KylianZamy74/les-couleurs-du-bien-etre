@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "par Sarah Vidal",
   url: "https://www.lescouleursdubienetre.fr",
   description:
-    "Praticienne en massages et soins énergétiques à Villaz, en Haute-Savoie. Sarah Vidal vous accompagne vers un mieux-être global : massages, drainage lymphatique, reiki, bols tibétains et accompagnement personnalisé.",
+    "Praticienne en massages et soins énergétiques à Villaz, en Haute-Savoie. Sarah Vidal vous accompagne vers un mieux-être global : massages, drainage lymphatique, reiki, bols tibétains et accompagnement personnalisé.",
   locality: "Villaz",
   region: "Haute-Savoie",
   areaServed: ["Annecy", "Villaz", "Haute-Savoie"],
@@ -20,7 +20,7 @@ export const SITE = {
 
 // Réponse FAQ « comment réserver », commune à toutes les pages (pas de
 // formulaire de contact : rendez-vous par téléphone ou e-mail).
-export const BOOKING_ANSWER = `Le plus simple est de m'appeler au ${SITE.phone} ou de m'écrire à ${SITE.email} : nous convenons ensemble d'un créneau adapté à vos disponibilités.`;
+export const BOOKING_ANSWER = `Le plus simple est de m'appeler au ${SITE.phone} ou de m'écrire à ${SITE.email} : nous convenons ensemble d'un créneau adapté à vos disponibilités.`;
 
 // Données légales (mentions légales, CGV). Source : registre national des
 // entreprises (recherche-entreprises.api.gouv.fr), vérifié le 2026-09-29.
