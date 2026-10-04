@@ -13,6 +13,7 @@ import textureSable from "../assets/images/sable-zen-cercles-meditation.webp";
 
 import imgMassageIntuitif from "../assets/images/sarah-vidal-massage-mains.webp";
 import imgPierresChaudes from "../assets/images/massage-pierres-chaudes-ambiance-spa.webp";
+import imgDrainage from "../assets/images/drainage-lymphatique-mains-jambe.webp";
 import imgReiki from "../assets/images/huiles-essentielles-cristaux-preparation-massage.webp";
 import imgAccompagnement from "../assets/images/sarah-vidal-seance-accompagnement.webp";
 import imgBolsTibetains from "../assets/images/sarah-vidal-soin-bol-tibetain.webp";
@@ -35,7 +36,7 @@ const faqItems = [
   {
     question: "Quels soins proposez-vous ?",
     answer:
-      "Des massages bien-être (massage intuitif, massage aux pierres chaudes), des soins énergétiques (reiki, voyage sonore aux bols tibétains) et un accompagnement personnalisé pour votre épanouissement.",
+      "Des massages bien-être (massage intuitif, massage aux pierres chaudes, drainage lymphatique), des soins énergétiques (reiki, voyage sonore aux bols tibétains) et un accompagnement personnalisé pour votre épanouissement.",
   },
   {
     question: "Peut-on combiner plusieurs soins lors d'une même séance ?",
@@ -154,13 +155,22 @@ const faqItems = [
           delay={80}
         />
         <ServiceCard
+          href="/massages/drainage-lymphatique"
+          title="Drainage lymphatique"
+          description="Gestes doux, lents et précis pour une circulation fluide et une sensation de légèreté."
+          meta="Soin de 1h · 85 €"
+          image={imgDrainage}
+          alt="Mains posées sur la jambe pendant un drainage lymphatique"
+          delay={160}
+        />
+        <ServiceCard
           href="/soins-energetiques/reiki"
           title="Soin Reiki"
           description="Soin énergétique non conventionnel d'origine japonaise, pratiqué par apposition des mains."
           meta="Soin de 1h · 65 €"
           image={imgReiki}
           alt="Huiles essentielles et cristaux préparés pour un soin"
-          delay={160}
+          delay={240}
         />
         <ServiceCard
           href="/accompagnement"
@@ -169,7 +179,7 @@ const faqItems = [
           meta="Bilan 1h45 · Séance 1h30"
           image={imgAccompagnement}
           alt="Séance d'accompagnement personnalisé avec Sarah Vidal"
-          delay={240}
+          delay={320}
         />
         <ServiceCard
           href="/soins-energetiques/bols-tibetains"
@@ -178,7 +188,7 @@ const faqItems = [
           meta="Soin de 1h15 · 85 €"
           image={imgBolsTibetains}
           alt="Sarah Vidal réalisant un soin au bol tibétain"
-          delay={320}
+          delay={400}
         />
       </div>
     </div>
