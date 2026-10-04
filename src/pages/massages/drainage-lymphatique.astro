@@ -18,6 +18,11 @@ const faqItems = [
       "La séance se déroule sur 1h, pour 85 €. Des forfaits sont aussi proposés : 385 € les 5 séances (77 € la séance) et 730 € les 10 séances (73 € la séance).",
   },
   {
+    question: "Combien de séances de drainage lymphatique faut-il prévoir ?",
+    answer:
+      "Une séance seule permet surtout de découvrir le soin. Pour en amplifier les bienfaits, une vraie cure compte au minimum 5 séances : c'est tout l'intérêt des forfaits de 5 et 10 séances.",
+  },
+  {
     question: "Les bols tibétains sont-ils inclus à chaque séance ?",
     answer:
       "Non, les bols tibétains ne sont pas systématiques : ils sont proposés uniquement lorsque je le juge pertinent, selon votre état et le déroulement de la séance.",
@@ -48,9 +53,9 @@ const faqItems = [
   category={CATEGORIES.massages}
   tagline="Rituel Légèreté & Harmonie, pour une circulation fluide et une profonde détente"
   prices={[
-    { label: "Séance", duration: "1h", price: "85 €" },
-    { label: "5 séances", duration: "5 × 1h", price: "385 €" },
-    { label: "10 séances", duration: "10 × 1h", price: "730 €" },
+    { label: "Séance découverte", duration: "1h", price: "85 €" },
+    { label: "Cure 5 séances", duration: "5 × 1h", price: "385 €" },
+    { label: "Cure 10 séances", duration: "10 × 1h", price: "730 €" },
   ]}
   bgImage={bgTexture}
   bgAlt="Ondes concentriques à la surface d'une eau calme aux reflets roses"
@@ -74,7 +79,8 @@ const faqItems = [
   <p class="font-body text-lg text-primary italic">« Prendre soin de soi, tout simplement… »</p>
 
   <Fragment slot="note">
-    Forfaits : 77 € la séance pour 5 séances, 73 € pour 10.{" "}
+    Une séance seule, c'est pour découvrir ; une vraie cure, c'est 5 séances minimum. Forfaits : 77 € la
+    séance pour 5 séances, 73 € pour 10.{" "}
     <a href="/conditions-generales-de-vente#contre-indications" class="underline hover:text-primary">Voir les contre-indications</a>.
   </Fragment>
 
