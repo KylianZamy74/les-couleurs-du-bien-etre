@@ -4,7 +4,7 @@ import { CATEGORIES, BOOKING_ANSWER } from "../../data/site";
 
 import bgTexture from "../../assets/images/eau-ondes-reflets-roses.webp";
 import imgDrainage from "../../assets/images/massage-lympho-drainant-mains-jambe.webp";
-import imgBols from "../../assets/images/bols-tibetains-fin-de-seance-allongee.webp";
+import imgHistoire from "../../assets/images/livre-ouvert-pages-lecture.webp";
 
 const faqItems = [
   {
@@ -21,11 +21,6 @@ const faqItems = [
     question: "Combien de séances de massage lympho-drainant faut-il prévoir ?",
     answer:
       "Une séance seule permet surtout de découvrir le soin. Pour en amplifier les bienfaits, une vraie cure compte au minimum 5 séances : c'est tout l'intérêt des forfaits de 5 et 10 séances.",
-  },
-  {
-    question: "Les bols tibétains sont-ils inclus à chaque séance ?",
-    answer:
-      "Non, les bols tibétains ne sont pas systématiques : ils sont proposés uniquement lorsque je le juge pertinent, selon votre état et le déroulement de la séance.",
   },
   {
     question: "Le massage lympho-drainant convient-il à tout le monde ?",
@@ -49,7 +44,7 @@ const faqItems = [
   description="Massage lympho-drainant, méthode manuelle, près d'Annecy à Villaz : légèreté et détente. Séance 1h, 85 €, avec Sarah Vidal."
   path="/massages/massage-lympho-drainant"
   name="Massage lympho-drainant méthode manuelle"
-  serviceDescription="Massage lympho-drainant, méthode manuelle : des gestes doux, lents et précis qui stimulent la circulation de la lymphe et apportent une profonde sensation de légèreté, avec une fin de séance possible aux bols tibétains."
+  serviceDescription="Massage lympho-drainant, méthode manuelle : des gestes doux, lents et précis qui stimulent la circulation de la lymphe et apportent une profonde sensation de légèreté."
   category={CATEGORIES.massages}
   tagline="Rituel Légèreté & Harmonie, pour une circulation fluide et une profonde détente"
   prices={[
@@ -61,9 +56,9 @@ const faqItems = [
   bgAlt="Ondes concentriques à la surface d'une eau calme aux reflets roses"
   photo={imgDrainage}
   photoAlt="Mains posées sur la jambe pendant un massage lympho-drainant, sous une serviette blanche"
-  detailTitle="Une fin de séance sonore"
-  detailImage={imgBols}
-  detailImageAlt="Bol tibétain posé près d'une personne allongée et détendue en fin de séance"
+  detailTitle="Les origines du massage lympho-drainant"
+  detailImage={imgHistoire}
+  detailImageAlt="Livre ancien ouvert, évoquant l'histoire du massage lympho-drainant"
   disclaimer="Ce soin est à visée de détente, de bien-être et de relaxation, non thérapeutique, et ne remplace pas un avis médical"
   faqItems={faqItems}
   related={{ label: "le massage intuitif", href: "/massages/massage-intuitif" }}
@@ -86,14 +81,20 @@ const faqItems = [
 
   <Fragment slot="detail">
     <p class="font-body text-base leading-relaxed text-text">
-      Selon vos besoins et mon ressenti, le soin peut se prolonger par une harmonisation aux{" "}
-      <a href="/soins-energetiques/bols-tibetains" class="font-bold text-primary hover:underline">bols tibétains</a>.
-      Cette invitation au lâcher-prise aide à apaiser le mental, à relâcher les tensions et à ancrer les
-      bienfaits du soin.
+      Dès l'Antiquité grecque, on évoquait déjà de « petits conduits » qui transportaient un mystérieux
+      « sang blanc » : la lymphe. Il faudra pourtant attendre la Renaissance pour commencer à la comprendre.
+      En 1622, Gaspare Aselli observe les vaisseaux lymphatiques, puis Jean Pecquet décrit en 1651 le
+      réservoir qui porte encore son nom.
     </p>
     <p class="font-body text-base leading-relaxed text-text">
-      Les bols tibétains ne sont pas systématiques : ils sont proposés uniquement lorsque je le juge
-      pertinent, selon votre état et le déroulement de la séance.
+      À la fin du XVIIIe siècle, l'anatomiste Paolo Mascagni dessine pour la première fois le système
+      lymphatique dans son ensemble. En 1892, le chirurgien Alexander Winiwarter imagine une première approche
+      manuelle, vite oubliée.
+    </p>
+    <p class="font-body text-base leading-relaxed text-text">
+      Dans les années 1930, sur la Côte d'Azur, un kinésithérapeute danois met au point des gestes doux, du
+      bout des doigts, pour accompagner la circulation de la lymphe. C'est la naissance du massage
+      lympho-drainant, dont s'inspire la méthode manuelle que je pratique aujourd'hui.
     </p>
   </Fragment>
 
@@ -126,8 +127,7 @@ const faqItems = [
         <p class="font-body text-base leading-relaxed text-text">
           La séance dure 1h. Elle commence par un temps d'échange pour comprendre vos besoins du moment et
           vérifier que le soin vous convient. Le massage se fait ensuite par des gestes doux, lents et
-          précis, et peut se terminer par une harmonisation aux bols tibétains. Les séances ont lieu à Villaz,
-          à quelques minutes d'Annecy.
+          précis. Les séances ont lieu à Villaz, à quelques minutes d'Annecy.
         </p>
       </div>
     </section>
