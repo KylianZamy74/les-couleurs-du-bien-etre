@@ -42,6 +42,19 @@ import { SITE, LEGAL } from "../data/site";
         </div>
 
         <div>
+          <h2 class="font-display mb-2 text-3xl font-bold text-primary">Médiateur de la consommation</h2>
+          <p>
+            {LEGAL.mediator.name}<br />
+            {LEGAL.mediator.address}<br />
+            <a href={LEGAL.mediator.url} class="font-semibold hover:text-primary" rel="noopener">{LEGAL.mediator.url.replace("https://", "")}</a>
+          </p>
+          <p class="mt-2">
+            Les modalités de recours sont détaillées dans les{" "}
+            <a href="/conditions-generales-de-vente" class="font-semibold hover:text-primary">conditions générales de vente</a>.
+          </p>
+        </div>
+
+        <div>
           <h2 class="font-display mb-2 text-3xl font-bold text-primary">Propriété intellectuelle</h2>
           <p>
             Les textes, le logo et les photographies de Sarah Vidal présents sur ce site sont sa propriété.

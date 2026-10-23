@@ -38,6 +38,12 @@ export const LEGAL = {
     url: "https://www.cloudflare.com",
   },
   registrar: { name: "OVH SAS", address: "2 rue Kellermann, 59100 Roubaix, France" },
+  // Médiateur désigné par Sarah (e-mail de bienvenue de Médiation Professionnelle).
+  mediator: {
+    name: "La Société Médiation Professionnelle",
+    address: "Alteritae, 5 rue Salvaing, 12000 Rodez",
+    url: "https://www.mediateur-consommation-smp.fr",
+  },
 } as const;
 
 export type NavLink = {
