@@ -8,7 +8,7 @@ export default defineConfig({
   // URL sans slash final (/massages et non /massages/) : fichiers .html servis
   // tels quels par Cloudflare Pages, sans redirection, comme les canonicals.
   trailingSlash: 'never',
-  build: { format: 'file' },
+  build: { format: 'file', inlineStylesheets: 'always' },
   vite: {
     plugins: [tailwindcss()]
   }
