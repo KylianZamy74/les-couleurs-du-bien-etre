@@ -17,12 +17,9 @@ import { SITE } from "../data/site";
         id="avis-carrousel"
         class="reviews-track -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto scroll-smooth px-4 pb-4 sm:mx-0 sm:scroll-px-0 sm:px-0"
       >
-        {reviews.map((review, index) => (
+        {reviews.map((review) => (
           <li
             class="w-[85%] shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-            role="group"
-            aria-roledescription="avis"
-            aria-label={`Avis ${index + 1} sur ${reviews.length}`}
           >
             <figure class="flex h-full flex-col gap-4 rounded-2xl bg-card-bg p-6 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]">
               <div class="font-display text-2xl leading-none text-primary" aria-hidden="true">{"★".repeat(review.rating)}</div>
