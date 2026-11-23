@@ -4,6 +4,7 @@ import SEO from "../components/SEO.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FloatingCall from "../components/FloatingCall.astro";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -32,6 +33,7 @@ const { title, description, path, image, jsonLd } = Astro.props;
     </main>
     <Footer />
     <FloatingCall />
+    <Analytics />
 
     <script>
       // Apparition au défilement des éléments .reveal (voir global.css). Sans
