@@ -1,7 +1,8 @@
 ---
-// Mesure d'audience PostHog (hébergement UE), même réglage que Nalunda : mode sans cookie (identifiant
-// anonyme calculé côté PostHog, renouvelé chaque jour), sans profil de personne ni enregistrement de
-// session, donc pas de bandeau requis. Sans clé dans l'environnement, rien n'est chargé.
+// Mesure d'audience PostHog (hébergement UE) en mode sans cookie : identifiant anonyme calculé côté PostHog,
+// renouvelé chaque jour, sans profil de personne ni enregistrement de session, donc pas de bandeau requis.
+// Ce mode efface l'IP avant la géolocalisation : la ville vient de Cloudflare (functions/api/geo.ts).
+// Sans clé dans l'environnement, rien n'est chargé.
 const key = import.meta.env.PUBLIC_POSTHOG_KEY;
 const host = import.meta.env.PUBLIC_POSTHOG_HOST;
 ---
@@ -11,12 +12,17 @@ const host = import.meta.env.PUBLIC_POSTHOG_HOST;
 <script>
   const el = document.querySelector<HTMLElement>("posthog-analytics");
   if (el?.dataset.key) {
-    const { default: posthog } = await import("posthog-js");
+    // Ville et pays fournis par functions/api/geo.ts ; s'ils manquent, la visite est comptée sans localisation.
+    const [{ default: posthog }, geo] = await Promise.all([
+      import("posthog-js"),
+      fetch("/api/geo").then((res) => (res.ok ? res.json() : {})).catch(() => ({})),
+    ]);
     posthog.init(el.dataset.key, {
       api_host: el.dataset.host,
       cookieless_mode: "always",
       person_profiles: "never",
       disable_session_recording: true,
+      before_send: (event) => event && { ...event, properties: { ...event.properties, ...geo } },
     });
   }
 </script>
