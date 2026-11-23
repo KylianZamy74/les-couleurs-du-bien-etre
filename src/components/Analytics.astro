@@ -1,0 +1,22 @@
+---
+// Mesure d'audience PostHog (hébergement UE), même réglage que Nalunda : mode sans cookie (identifiant
+// anonyme calculé côté PostHog, renouvelé chaque jour), sans profil de personne ni enregistrement de
+// session, donc pas de bandeau requis. Sans clé dans l'environnement, rien n'est chargé.
+const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+const host = import.meta.env.PUBLIC_POSTHOG_HOST;
+---
+
+{key && host && <posthog-analytics data-key={key} data-host={host} />}
+
+<script>
+  const el = document.querySelector<HTMLElement>("posthog-analytics");
+  if (el?.dataset.key) {
+    const { default: posthog } = await import("posthog-js");
+    posthog.init(el.dataset.key, {
+      api_host: el.dataset.host,
+      cookieless_mode: "always",
+      person_profiles: "never",
+      disable_session_recording: true,
+    });
+  }
+</script>
